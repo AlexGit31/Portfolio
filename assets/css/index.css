@@ -1,0 +1,27 @@
+/* Styles pour afficher la photo de profil à côté du contenu */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espace entre l'image et le texte */
+  width: 80%;
+  max-width: 800px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* Pour un effet arrondi */
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .profile-wrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .profile-wrapper .profile-img {
+    width: 120px; /* Taille ajustée pour mobile */
+    height: 120px;
+    margin-bottom: 10px; /* Espace entre l'image et le contenu */
+  }
+}

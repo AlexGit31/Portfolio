@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Web d'Alexis: Contact</title>
+    <!-- Optionnel : Import d'une police depuis Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=DM+Mono:wght@400;500;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;600;700&family=Outfit:wght@300;400;600&display=swap"
+    />
+    <link rel="stylesheet" href="./../assets/css/projets.css" />
+    <link rel="stylesheet" href="./../assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Canvas pour l'animation de fond -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- En-tête + nav -->
+    <header>
+      <div
+        class="site-title"
+        onclick="window.location.href='./../index.html';"
+        style="cursor: pointer"
+      >
+        Site Web d'Alexis
+      </div>
+      <nav>
+        <!-- Icône hamburger -->
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul>
+          <li><a href="./cv.html">CV</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./loisirs.html">Loisirs</a></li>
+          <li><a href="./projets.html">Projets</a></li>
+          <li><a href="./bibliographie.html">Bibliographie</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Section de présentation / "Hero" -->
+      <section class="hero">
+        <h1>Mes Projets</h1>
+        <p>
+          Je fais ici la liste de mes projets !<br />
+          J'y liste des projets d'école ainsi que mes projets personnels.
+        </p>
+      </section>
+
+      <!-- Blocs principaux 
+         On supprime le contenu "direct" (h2/p) 
+         et on le stocke dans data-text, 
+         pour l'afficher lettre par lettre en JS -->
+      <section class="content-section">
+        <div class="projects-wrapper">
+          <div class="projects-container">
+            <div class="year-divider">2023/2024</div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="./../assets/illustration-projet/py-env2.png"
+                  alt="Illustration du projet 1"
+                />
+              </div>
+              <div class="project-title">Projet A</div>
+              <div class="project-description">
+                Ce projet est un projet cool
+              </div>
+              <div class="project-tech">
+                <span class="tech-item">Python</span>
+                <span class="tech-item">Html/css</span>
+                <span class="tech-item">js</span>
+                <span class="tech-item">sql</span>
+                <span class="tech-item">php</span>
+                <span class="tech-item">lua</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="./../assets/illustration-projet/projet-neovim.png"
+                  alt="Illustration du projet 2"
+                />
+              </div>
+              <div class="project-title">Projet B</div>
+              <div class="project-description">Description du projet B.</div>
+              <div class="project-tech">
+                <span class="tech-item">HTML/CSS</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img src="image_projet3.jpg" alt="Illustration du projet 3" />
+              </div>
+              <div class="project-title">Projet C</div>
+              <div class="project-description">Description du projet C.</div>
+              <div class="project-tech">
+                <span class="tech-item">JavaScript</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img src="image_projet4.jpg" alt="Illustration du projet 4" />
+              </div>
+              <div class="project-title">Projet D</div>
+              <div class="project-description">Description du projet D.</div>
+              <div class="project-tech">
+                <span class="tech-item">Dash</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="year-divider">2022/2023</div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img src="image_projet5.jpg" alt="Illustration du projet 5" />
+              </div>
+              <div class="project-title">Projet E</div>
+              <div class="project-description">Description du projet E.</div>
+              <div class="project-tech">
+                <span class="tech-item">Python</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img src="image_projet5.jpg" alt="Illustration du projet 5" />
+              </div>
+              <div class="project-title">Projet E</div>
+              <div class="project-description">Description du projet E.</div>
+              <div class="project-tech">
+                <span class="tech-item">Python</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img src="image_projet5.jpg" alt="Illustration du projet 5" />
+              </div>
+              <div class="project-title">Projet E</div>
+              <div class="project-description">Description du projet E.</div>
+              <div class="project-tech">
+                <span class="tech-item">Python</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+
+            <div class="year-divider">2021/2022</div>
+
+            <div class="project-card">
+              <div class="project-image">
+                <img src="image_projet5.jpg" alt="Illustration du projet 5" />
+              </div>
+              <div class="project-title">Projet E</div>
+              <div class="project-description">Description du projet E.</div>
+              <div class="project-tech">
+                <span class="tech-item">Python</span>
+              </div>
+              <a href="#" class="project-button">?</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="project-modal" class="modal">
+          <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-body">
+              <h2 id="modal-title">Titre du Projet</h2>
+              <p id="modal-description">
+                Description détaillée du projet ici...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <script src="./../assets/js/script-projets.js"></script>
+        <script src="./../assets/js/animation-projets.js"></script>
+        <script src="./../assets/js/explications-projets.js"></script>
+        <script src="./../assets/js/animation.js"></script>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Alexis - Tous droits réservés</p>
+    </footer>
+  </body>
+</html>

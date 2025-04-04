@@ -1,0 +1,389 @@
+h1 {
+  /*font-family: "Space Grotesk", sans-serif; /* Police principale */
+  color: #eaeaea; /* Couleur sobre et lisible sur fond sombre */
+}
+p {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.block p {
+  padding: 10px;
+}
+
+.block h1 {
+  position: relative;
+  display: inline-block;
+}
+
+.block h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: lightgreen;
+  transition: width 0.3s ease;
+}
+
+.block:hover h1::after {
+  width: 100%;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+  gap: 20px; /* Espacement uniforme entre les cartes */
+}
+.skills-container::after {
+  content: "";
+  display: block;
+  width: 100%; /* Force la dernière ligne à s'étendre */
+  grid-column: span 2; /* Permet de centrer les 2 derniers éléments */
+}
+.skill {
+  /*background-color: #0f3460;*/
+  /*border-radius: 12px;*/
+  padding: 15px;
+  text-align: center;
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);*/
+  box-sizing: border-box; /* Évite que le padding fasse déborder la carte */
+}
+
+.skill img {
+  width: 40px; /* Taille uniforme des logos */
+  height: 40px; /* Assure des proportions équilibrées */
+  margin-bottom: 10px; /* Espacement entre le logo et les étoiles */
+}
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.star {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  font-size: 18px;
+  opacity: 0; /* Démarrage invisible */
+  transform: scale(0.5) rotate(-180deg); /* Préparation de l'effet */
+}
+
+.star.visible {
+  animation: fade-in-rotate 0.5s forwards;
+}
+
+.star .full,
+.star .empty,
+.star .half {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star .full {
+  color: #f0c808; /* Étoile pleine */
+}
+
+.star .half {
+  color: #f0c808;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 150%); /* Demi-étoile corrigée */
+}
+
+.star .empty {
+  color: #3b3b98; /* Étoile vide */
+}
+
+@keyframes fade-in-rotate {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg); /* Rotation + rétrécissement */
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0); /* Retour à la position normale */
+    filter: blur(0);
+  }
+}
+
+/* ➡️ Responsive : 2 colonnes sur petits écrans */
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skill img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+/*---------Soft Skills-----------*/
+
+.soft-skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.soft-skill {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.soft-skill:hover {
+  background-color: #292929;
+  transform: translateY(-5px);
+}
+#theoritical-skills .skill:hover {
+  background-color: #292929;
+  transform: translateY(-5px);
+}
+.soft-skill i {
+  font-size: 40px;
+  color: #f0c808; /* Icônes en jaune élégant */
+  margin-bottom: 10px;
+}
+
+.soft-skill h3 {
+  font-family: "DM Mono", monospace;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.soft-skill p {
+  font-family: "DM Mono", monospace;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+#soft-skill-block h1 {
+  margin-bottom: 20px; /* Espace entre le h1 et le paragraphe */
+}
+
+/*---------Language Toggle---------*/
+
+#lang-toggle {
+  position: fixed;
+  top: 92%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border: 3px solid #fff;
+}
+
+.flag {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.4s ease-in-out;
+}
+
+#flag-fr {
+  background-color: #0055a4; /* Couleur drapeau français */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#flag-en {
+  background-color: #00247d; /* Couleur drapeau anglais */
+  color: #fff;
+  transform: translateY(100%); /* Caché par défaut */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*------Theoreticall Skills--------*/
+.theoretical-skills h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#theoritical-skills h1 {
+  margin-bottom: 20px; /* Espace entre le h1 et le paragraphe */
+}
+
+/*.skills-container {*/
+/*  display: grid;*/
+/*  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
+/*  gap: 20px;*/
+/*  max-width: 1200px;*/
+/*  margin: 0 auto;*/
+/*}*/
+
+.soft-skills-container .skill {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+#theoritical-skills .skill {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.skill i {
+  font-size: 40px;
+  color: #f0c808; /* Icônes en jaune élégant */
+  margin-bottom: 10px;
+}
+
+.skill h3 {
+  font-family: "DM Mono", monospace;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.skill p {
+  font-family: "DM Mono", monospace;
+  color: #aaaaaa;
+  font-size: 14px;
+}
+
+/*------Me Contacter--------*/
+.contact-section h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+#contact h1 {
+  margin-bottom: 20px; /* Espace entre le h1 et le paragraphe */
+}
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background-color: #1e1e1e;
+  border: 2px solid #f0c808;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-card:hover {
+  background-color: #292929;
+  transform: scale(1.05);
+}
+
+.contact-card i {
+  font-size: 40px;
+  color: #f0c808;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  font-family: "DM Mono", monospace;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.contact-card button {
+  background-color: #f0c808;
+  color: #121212;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: "DM Mono", monospace;
+  transition: background 0.3s ease;
+}
+
+.contact-card button:hover {
+  background-color: #d9a507;
+}
+
+/*--------------Langues------------*/
+.languages-section h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.languages-section h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.language {
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+}
+
+.language h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  background-color: #292929;
+  border-radius: 8px;
+  height: 25px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.progress {
+  background: linear-gradient(90deg, #f0c808, #d9a507);
+  color: #121212;
+  text-align: center;
+  line-height: 25px;
+  font-weight: bold;
+  border-radius: 8px 0 0 8px;
+  width: 0; /* Démarrage à 0% pour l'animation */
+  transition: width 1.5s ease-out;
+}
