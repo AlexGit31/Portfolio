@@ -128,18 +128,27 @@ p {
 }
 /* Adaptation pour les petits écrans */
 @media screen and (max-width: 600px) {
-  .skills-container {
-    grid-template-columns: repeat(2, 1fr);
+  #theoritical-skills .skills-container {
+    grid-template-columns: 1fr; /* ✅ une seule colonne */
     gap: 1rem;
-    padding: 0; /* pas de padding interne */
   }
 
   #theoritical-skills {
-    padding: 0.5rem; /* petit padding sur les côtés du bloc principal */
+    padding: 0.5rem;
   }
 
-  .skill {
-    padding: 0.8rem;
+  #theoritical-skills .skill {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  #theoritical-skills.skill h3,
+  #theoritical-skills.skill p {
+    font-size: 1rem;
+  }
+
+  #theoritical-skills.skill i {
+    font-size: 1.6rem;
   }
 }
 
