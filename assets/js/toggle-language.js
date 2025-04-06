@@ -30,6 +30,27 @@ const translations = {
     fr: "Contactez-moi",
     en: "Contact Me",
   },
+  "My-Contact-Intro": {
+    fr: "N'hésitez pas à me contacter en m'envoyant un email à l'une des adresses suivante !",
+    en: "Don't hesitate to contact me by sending an email to one of the following addresses!",
+  },
+  /*Nave Bar*/
+  "nav-cv": {
+    fr: "CV",
+    en: "Resume",
+  },
+  "nav-loisirs": {
+    fr: "Loisirs",
+    en: "Hobbies",
+  },
+  "nav-projets": {
+    fr: "Projets",
+    en: "Projects",
+  },
+  "nav-bibliographie": {
+    fr: "Bibliographie",
+    en: "Bibliography",
+  },
 };
 
 function toggleLanguage2() {
