@@ -51,6 +51,41 @@ const translations = {
     fr: "Bibliographie",
     en: "Bibliography",
   },
+  /* Biliographie */
+  "biliographie-title": {
+    fr: "Bibliographie",
+    en: "Bibliography",
+  },
+  "bibliographie-intro": {
+    fr: "Je regroupe ici mes livres de mathématiques et d'informatique !",
+    en: "I group here my books of mathematics and computer science !",
+  },
+  "math-title": {
+    fr: "Mes livres de Mathématiques",
+    en: "My books of Mathematics",
+  },
+  "info-title": {
+    fr: "Mes livres d'Informatique",
+    en: "My books of Computer Science",
+  },
+  /* Loisirs */
+  "loisirs-title": {
+    fr: "Mes Loisirs",
+    en: "My Hobbies",
+  },
+  "loisirs-intro": {
+    fr: "L'une de mes grandes passions est la photographie!",
+    en: "One of my great passions is photography!",
+  },
+  /* Home Page */
+  "hero-title": {
+    fr: "Bienvenue sur mon site",
+    en: "Welcome to my website",
+  },
+  "hero-intro": {
+    fr: "Plongez dans mon univers, découvrez mes projets et bien plus encore !",
+    en: "Dive into my universe, discover my projects and much more !",
+  },
 };
 
 function toggleLanguage2() {

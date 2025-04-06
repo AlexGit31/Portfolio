@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./../assets/css/main.css" />
     <link rel="stylesheet" href="./../assets/css/loisirs.css" />
     <link rel="stylesheet" href="./../assets/css/swipe.css" />
+    <link rel="stylesheet" href="./../assets/css/contact-language.css" />
     <script
       type="text/javascript"
       src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"
@@ -44,11 +45,15 @@
           <span></span>
         </div>
         <ul>
-          <li><a href="./cv.html">CV</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./loisirs.html">Loisirs</a></li>
-          <li><a href="./projets.html">Projets</a></li>
-          <li><a href="./bibliographie.html">Bibliographie</a></li>
+          <li><a href="./cv.html" id="nav-cv">CV</a></li>
+          <li><a href="./contact.html" id="nav-contact">Contact</a></li>
+          <li><a href="./loisirs.html" id="nav-loisirs">Loisirs</a></li>
+          <li><a href="./projets.html" id="nav-projets">Projets</a></li>
+          <li>
+            <a href="./bibliographie.html" id="nav-bibliographie"
+              >Bibliographie</a
+            >
+          </li>
         </ul>
       </nav>
     </header>
@@ -56,8 +61,10 @@
     <main>
       <!-- Section de présentation / "Hero" -->
       <section class="hero">
-        <h1>Mes Loisirs</h1>
-        <p>L'une de mes grandes passions est la photographie!</p>
+        <h1 id="loisirs-title">Mes Loisirs</h1>
+        <p id="loisirs-intro">
+          L'une de mes grandes passions est la photographie!
+        </p>
       </section>
 
       <!-- Section de la galerie photo -->
@@ -242,9 +249,14 @@
     </main>
 
     <footer>
+      <div id="lang-toggle" onclick="toggleLanguage2()">
+        <div class="flag" id="flag-fr">🇫🇷</div>
+        <div class="flag" id="flag-en">🇬🇧</div>
+      </div>
       <p>&copy; 2025 Alexis - Tous droits réservés</p>
     </footer>
     <script src="./../assets/js/index.js"></script>
     <script src="./../assets/js/loisirs.js"></script>
+    <script src="./../assets/js/toggle-language.js"></script>
   </body>
 </html>
