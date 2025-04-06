@@ -1,10 +1,17 @@
 // script.js
 const books = [
-  { title: "Analyse 1", category: "Analyse" },
-  { title: "Algèbre linéaire", category: "Algèbre" },
-  { title: "Théorie des nombres", category: "Théorie" },
-  { title: "Géométrie différentielle", category: "Géométrie" },
-  { title: "Probabilités et statistiques", category: "Statistiques" },
+  {
+    title: "Analyse complexe CASSINI",
+    category: "Analyse",
+  },
+  { title: "Exerices de Probabilités CASSINI", category: "Probabilités" },
+  { title: "Calcul Intégral CASSINI", category: "Analyse" },
+  { title: "Cours d'Algèbre CASSINI", category: "Algèbre" },
+  { title: "Théorie des Probabilités SPRINGER", category: "Probabilités" },
+  {
+    title: "Modéles Aléatoires en Finance Mathématique HERMANN",
+    category: "Probabilités",
+  },
 ];
 
 const bookList = document.getElementById("bookList");

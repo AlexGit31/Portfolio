@@ -1,10 +1,9 @@
 // script.js
 const books_informatique = [
-  { title: "Info Stat", category: "Analyse" },
-  { title: "Info elementaire", category: "Algèbre" },
-  { title: "Théorie des nombres", category: "Théorie" },
-  { title: "Géométrie différentielle", category: "Géométrie" },
-  { title: "Probabilités et statistiques", category: "Statistiques" },
+  {
+    title: "Krylov Subspace Methods for Linear Systems SPRINGER",
+    category: "Algorithm",
+  },
 ];
 
 const bookList2 = document.getElementById("bookList2");
