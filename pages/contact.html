@@ -16,6 +16,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./../assets/css/main.css" />
+    <link rel="stylesheet" href="./../assets/css/contact-language.css" />
     <link rel="stylesheet" href="./../assets/css/contact.css" />
     <script
       type="text/javascript"
@@ -55,7 +56,7 @@
     <main>
       <!-- Section de présentation / "Hero" -->
       <section class="hero">
-        <h1>Me contacter</h1>
+        <h1 id="My-Contact-Title">Me contacter</h1>
         <p>
           N'hésitez pas à me contacter en m'envoyant un email à l'une des
           adresses suivante !
@@ -85,8 +86,13 @@
     </main>
 
     <footer>
+      <div id="lang-toggle" onclick="toggleLanguage2()">
+        <div class="flag" id="flag-fr">🇫🇷</div>
+        <div class="flag" id="flag-en">🇬🇧</div>
+      </div>
       <p>&copy; 2025 Alexis - Tous droits réservés</p>
     </footer>
     <script src="./../assets/js/index.js"></script>
+    <script src="./../assets/js/toggle-language.js"></script>
   </body>
 </html>
