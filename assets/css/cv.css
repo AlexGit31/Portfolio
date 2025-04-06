@@ -158,6 +158,13 @@ p {
   /*Ceci est un commentaire test pour git*/
 }
 
+#prog-skills-block .skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.5rem; /* espace entre les blocs */
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+}
 .skill img:hover {
   transform: scale(1.1);
   filter: brightness(1.3);
