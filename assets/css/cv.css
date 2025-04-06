@@ -187,7 +187,9 @@ p {
     background 0.3s ease;
 }
 
-.soft-skill:hover {
+.soft-skill:hover,
+.soft-skill:focus,
+.soft-skill:active {
   background-color: #292929;
   transform: translateY(-5px);
 }
