@@ -118,7 +118,7 @@ p {
 /*}*/
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1.5rem; /* espace entre les blocs */
   transition: all 0.3s ease-in-out;
   padding: 1rem;
@@ -150,6 +150,12 @@ p {
   #theoritical-skills.skill i {
     font-size: 1.6rem;
   }
+
+  /*On réduit la taille du gap du texte d'introduction*/
+  #personal-present-block {
+    padding: 10px;
+  }
+  /*Ceci est un commentaire test pour git*/
 }
 
 .skill img:hover {
