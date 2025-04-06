@@ -7,16 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const projectButtons = document.querySelectorAll(".project-button");
 
   const projectDetails = {
-    "Projet A":
-      "Description détaillée du projet A avec ses objectifs principaux et résultats obtenus.",
-    "Projet B":
-      "Un projet complet utilisant HTML/CSS et JavaScript pour créer un site dynamique.",
-    "Projet C":
-      "Un projet analytique avec des fonctionnalités avancées de visualisation de données.",
-    "Projet D":
-      "Une application basée sur Dash pour analyser les données boursières.",
-    "Projet E":
-      "Un projet Python explorant des algorithmes d'intelligence artificielle.",
+    "Projet Dashbord":
+      "Projet d'école. Dashbord qui reprend les données de l'INSEE sur les salaires en France. Certains indicateurs dynamiques mettent en avant les disparités entre les genres.",
+    "Projet Portfolio":
+      "Projet personnel. Site Web qui m'a permis de mettre en pratique mes connaissances en HTML, CSS et JS afin de mettre en avant mes compétences.",
+    HammerSpoon:
+      "Projet personnel. Raccourcis personnalisés pour les applications de bureau ainsi que des keymaps pour améliorer mon window management.",
+    "Projet BDD":
+      "Projet d'école. Site de gestion d'événements. Ce projet m'a permis de mettre en pratique mes connaissances en PHP et SQL.",
+    "Projet Neovim":
+      "Projet personnel. Configuration de l'IDE de mes rêves. Au total plus de 40 plugins et 400 keymaps qui rendent mon workflow extrêment fluide.",
+    "Projet Musique":
+      "Projet personnel. Petite application avec un interface graphipe pour télécharger de la musique simplement à partir de liens Youtube.",
+    "Projet GUI Python":
+      'Projet personnel. Commande shell "pyvenvs" qui me permet de sélectionner mes différents environements virtuels pythons avec un interface graphique.',
+    "Projet IA Echecs":
+      "Projet personnel. Algorithme en python capable de jouer une partie d'échecs. Je me suis inspiré de Deep Blue développé par IBM. L'algorithme utilisé est un élagage alpha-beta.",
+    Optimisation:
+      "Projet personnel. Optimisation du réseau éléctrique de la ville de Bayonne. Utilisation de trois algorithme : Prime, Dijkstra, k-moyenne.",
   };
 
   projectButtons.forEach((button) => {
