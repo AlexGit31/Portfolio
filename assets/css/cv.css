@@ -118,7 +118,7 @@ p {
 /*}*/
 .skills-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 1.5rem; /* espace entre les blocs */
   transition: all 0.3s ease-in-out;
   padding: 1rem;
@@ -264,14 +264,6 @@ p {
 #theoritical-skills h1 {
   margin-bottom: 20px; /* Espace entre le h1 et le paragraphe */
 }
-
-/*.skills-container {*/
-/*  display: grid;*/
-/*  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));*/
-/*  gap: 20px;*/
-/*  max-width: 1200px;*/
-/*  margin: 0 auto;*/
-/*}*/
 
 .soft-skills-container .skill {
   background-color: #1e1e1e;
