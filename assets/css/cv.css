@@ -30,11 +30,12 @@ p {
   width: 100%;
 }
 
-.skills-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
-  gap: 20px; /* Espacement uniforme entre les cartes */
-}
+/*.skills-container {*/
+/*  display: grid;*/
+/*  grid-template-columns: repeat(4, 1fr); /* 4 colonnes fixes */
+*/
+/*  gap: 20px; /* Espacement uniforme entre les cartes */*/
+/*}*/
 .skills-container::after {
   content: "";
   display: block;
@@ -110,9 +111,35 @@ p {
 }
 
 /* ➡️ Responsive : 2 colonnes sur petits écrans */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {*/
+/*  .skills-container {*/
+/*    grid-template-columns: repeat(2, 1fr);*/
+/*  }*/
+/*}*/
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem; /* espace entre les blocs */
+  transition: all 0.3s ease-in-out;
+  padding: 1rem;
+}
+#theoritical-skills {
+  padding: 1rem; /* espace autour du bloc principal */
+}
+/* Adaptation pour les petits écrans */
+@media screen and (max-width: 600px) {
   .skills-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0; /* pas de padding interne */
+  }
+
+  #theoritical-skills {
+    padding: 0.5rem; /* petit padding sur les côtés du bloc principal */
+  }
+
+  .skill {
+    padding: 0.8rem;
   }
 }
 
