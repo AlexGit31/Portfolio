@@ -77,28 +77,28 @@ animate();
  */
 
 // Fonction pour taper un texte dans un conteneur, lettre par lettre
-function typeText(container, text, index = 0, speed = 30) {
-  // Si on n'a pas atteint la fin du texte
-  if (index < text.length) {
-    const char = text[index];
-
-    if (char === "\n") {
-      // Saut de ligne => on insère un <br>
-      container.appendChild(document.createElement("br"));
-    } else {
-      // On crée un span pour chaque lettre, pour animer son apparition
-      const span = document.createElement("span");
-      span.classList.add("typed-letter");
-      span.textContent = char;
-      container.appendChild(span);
-    }
-
-    // On rappelle la fonction pour la lettre suivante
-    setTimeout(() => {
-      typeText(container, text, index + 1, speed);
-    }, speed);
-  }
-}
+//function typeText(container, text, index = 0, speed = 30) {
+//  // Si on n'a pas atteint la fin du texte
+//  if (index < text.length) {
+//    const char = text[index];
+//
+//    if (char === "\n") {
+//      // Saut de ligne => on insère un <br>
+//      container.appendChild(document.createElement("br"));
+//    } else {
+//      // On crée un span pour chaque lettre, pour animer son apparition
+//      const span = document.createElement("span");
+//      span.classList.add("typed-letter");
+//      span.textContent = char;
+//      container.appendChild(span);
+//    }
+//
+//    // On rappelle la fonction pour la lettre suivante
+//    setTimeout(() => {
+//      typeText(container, text, index + 1, speed);
+//    }, speed);
+//  }
+//}
 
 // Sélection de tous les blocs
 const blocks = document.querySelectorAll(".block");

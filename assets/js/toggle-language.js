@@ -86,6 +86,28 @@ const translations = {
     fr: "Plongez dans mon univers, découvrez mes projets et bien plus encore !",
     en: "Dive into my universe, discover my projects and much more !",
   },
+  "infos-simple": {
+    fr: `À propos de moi
+
+Actuellement étudiant en Data et Computer Engineering à l'École Polytechnique Universitaire de Lille.
+Je suis passionné de Mathématiques et d'Informatique, notamment de Théorie des Probabilités et d'Intelligence Artificielle.`,
+    en: `About Me
+
+Currently studying Data and Computer Engineering at the Polytechnic University School of Lille.
+I'm passionate about Mathematics and Computer Science, particularly Probability Theory and Artificial Intelligence.`,
+  },
+  parcours: {
+    fr: `Mon Parcours
+
+● École Polytechnique Universitaire de Lille
+● Classes Préparatoires aux Grandes Ecoles : Charlemagne Paris 
+● Loréat 2021 de Du Pays Basque aux Grandes Ecoles`,
+    en: `My Journey
+
+● Polytechnic University School of Lille
+● Preparatory Classes for the Grandes Écoles: Charlemagne Paris
+● 2021 Laureate of From the Basque Country to the Grandes Écoles`,
+  },
 };
 
 function toggleLanguage2() {
@@ -113,9 +135,30 @@ function updateContent2(lang) {
   Object.keys(translations).forEach((id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.textContent = translations[id][lang];
+      if (element.classList.contains("typewriter")) {
+        // On met à jour le data-text et on vide le contenu visible
+        element.setAttribute("data-text", translations[id][lang]);
+        element.textContent = ""; // Réinitialise le contenu pour relancer l'animation
+
+        // Si tu utilises une fonction d'animation personnalisée, relance-la ici :
+        restartTypewriterAnimation(element);
+      } else {
+        element.textContent = translations[id][lang];
+      }
     }
   });
+
+  const langToggle = document.getElementById("lang-toggle");
+
+  // Masquer avec flou
+  langToggle.classList.add("hidden-lang-toggle");
+  langToggle.classList.remove("visible-lang-toggle");
+
+  // Réafficher après 10 secondes avec effet de flou inversé
+  setTimeout(() => {
+    langToggle.classList.remove("hidden-lang-toggle");
+    langToggle.classList.add("visible-lang-toggle");
+  }, 10000); // 10 000 ms = 10 s
 }
 
 // Applique la langue au chargement de la page
@@ -128,3 +171,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("flag-en").style.transform = "translateY(0)";
   }
 });
+
+function restartTypewriterAnimation(element) {
+  const text = element.getAttribute("data-text");
+  let i = 0;
+  element.textContent = "";
+
+  const interval = setInterval(() => {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 50); // vitesse d'écriture
+}

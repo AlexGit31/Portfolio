@@ -25,3 +25,25 @@
     margin-bottom: 10px; /* Espace entre l'image et le contenu */
   }
 }
+/* Gestion de l'apparition progressive du texte avec les différentes langues*/
+.typewriter {
+  white-space: pre-wrap; /* Important pour respecter les \n */
+}
+
+#lang-toggle {
+  transition:
+    opacity 0.5s ease,
+    filter 0.5s ease;
+}
+
+.hidden-lang-toggle {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+.visible-lang-toggle {
+  opacity: 1;
+  pointer-events: auto;
+  filter: blur(0);
+}
