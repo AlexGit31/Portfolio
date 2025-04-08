@@ -1,6 +1,6 @@
 // script.js
-const BASE_PATH = window.location.pathname.includes("ton-projet")
-  ? "/ton-projet/"
+const BASE_PATH = window.location.pathname.includes("Portfolio")
+  ? "/Portfolio/"
   : "/";
 const books = [
   {
