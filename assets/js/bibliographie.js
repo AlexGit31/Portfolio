@@ -5,7 +5,7 @@ const books = [
     authors: ["Aviva Szpirglas"],
     edition: "Cassini",
     categories: ["algèbre"],
-    cover: "/assets/covers/cassini-algebre-tome1.jpg",
+    cover: "./../covers/cassini-algebre-tome1.jpg",
   },
   {
     title: "Algèbre Tome 2",
