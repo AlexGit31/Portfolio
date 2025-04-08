@@ -61,12 +61,8 @@ const translations = {
     en: "I group here my books of mathematics and computer science !",
   },
   "math-title": {
-    fr: "Mes livres de Mathématiques",
-    en: "My books of Mathematics",
-  },
-  "info-title": {
-    fr: "Mes livres d'Informatique",
-    en: "My books of Computer Science",
+    fr: "Mes livres",
+    en: "My books",
   },
   /* Loisirs */
   "loisirs-title": {

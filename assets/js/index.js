@@ -105,17 +105,6 @@ const blocks = document.querySelectorAll(".block");
 
 // Pour chaque bloc, on attend la fin de l'animation fadeUp,
 // puis on lance la frappe du texte contenu dans data-text
-blocks.forEach((block) => {
-  block.addEventListener("animationend", (e) => {
-    // Vérifie si l'animation terminée est bien "fadeUp"
-    if (e.animationName === "fadeUp") {
-      // Récupère le texte à taper
-      const text = block.getAttribute("data-text") || "";
-      // Lance l'effet "machine à écrire"
-      typeText(block, text);
-    }
-  });
-});
 
 // Pour la gestion du menu en fonction de la taille de l'écran
 function toggleMenu() {
