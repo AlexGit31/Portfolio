@@ -1,11 +1,14 @@
 // script.js
+const BASE_PATH = window.location.pathname.includes("ton-projet")
+  ? "/ton-projet/"
+  : "/";
 const books = [
   {
     title: "Exercices d'Algèbre",
     authors: ["Aviva Szpirglas"],
     edition: "Cassini",
     categories: ["algèbre"],
-    cover: "/Portfolio/assets/covers/cassini-algebre-tome1.jpg",
+    cover: `${BASE_PATH}/assets/covers/cassini-algebre-tome1.jpg`,
   },
   {
     title: "Algèbre Tome 2",
