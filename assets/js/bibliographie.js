@@ -38,6 +38,18 @@ const books = [
     categories: ["algèbre", "analyse", "théorie des nombres"],
     cover: "/Portfolio/assets/covers/elements-analyse-algebre.jpeg",
   },
+  {
+    title: "Exerices de probabilités",
+    authors: [
+      "Marie Cottrell",
+      "Valentine Genon-Catalot",
+      "Christian Duhamel",
+      "Thierry Meyre",
+    ],
+    edition: "Cassini",
+    categories: ["probabilités"],
+    cover: "/Portfolio/assets/covers/cassini-probabilites.jpg",
+  },
 
   ,
 ];
