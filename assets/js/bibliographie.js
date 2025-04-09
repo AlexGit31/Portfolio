@@ -50,6 +50,13 @@ const books = [
     categories: ["probabilités"],
     cover: "/Portfolio/assets/covers/cassini-probabilites.jpg",
   },
+  {
+    title: "calcul intégral",
+    authors: ["Bernard Candelperghar"],
+    edition: "Cassini",
+    categories: ["calcul intégral", "théorie de la mesure"],
+    cover: "/Portfolio/assets/covers/cassini-calcul-integral.jpeg",
+  },
 
   ,
 ];
