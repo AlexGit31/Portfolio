@@ -136,6 +136,18 @@ const translations = {
     fr: "Me Contacter",
     en: "Contact Me",
   },
+  "langues-title-1": {
+    fr: "Anglais",
+    en: "English",
+  },
+  "langues-title-2": {
+    fr: "Allemand",
+    en: "German",
+  },
+  "langues-title-3": {
+    fr: "Japonais",
+    en: "Japanese",
+  },
   /* Page de Contact */
   "My-Contact-Title": {
     fr: "Contactez-moi",
