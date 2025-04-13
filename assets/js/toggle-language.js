@@ -25,6 +25,18 @@ const translations = {
     fr: "Mes Soft Skills",
     en: "My Soft Skills",
   },
+  "theoritical-skills-title": {
+    fr: "Compétences Théoriques",
+    en: "Theoretical Skills",
+  },
+  "langues-title": {
+    fr: "Langues",
+    en: "Languages",
+  },
+  "cv-contact-title": {
+    fr: "Me Contacter",
+    en: "Contact Me",
+  },
   /* Page de Contact */
   "My-Contact-Title": {
     fr: "Contactez-moi",
