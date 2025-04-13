@@ -30,26 +30,51 @@ const translations = {
     fr: "Determination & Persévérance",
     en: "Determination & Perseverance",
   },
+  "soft-skills-text-1": {
+    fr: "Capable de mener à bien des projets exigeants.",
+    en: "Capable of leading complex projects.",
+  },
   "soft-skills-title-2": {
     fr: "Autonomie & Prise d'initiative",
     en: "Autonomy & Initiative",
+  },
+  "soft-skills-text-2": {
+    fr: "Expérience significative dans la gestion de projets en autonomie.",
+    en: "Significant experience in managing projects independently.",
   },
   "soft-skills-title-3": {
     fr: "Capacité d'adaptation",
     en: "Adaptability",
   },
+  "soft-skills-text-3": {
+    fr: "Expérience dans des environnements variés et multiculturels.",
+    en: "Experience in diverse and multicultural environments.",
+  },
   "soft-skills-title-4": {
     fr: "Gestion du stress & Résilience",
     en: "Stress Management & Resilience",
+  },
+  "soft-skills-text-4": {
+    fr: "Capacité à maintenir la performance sous pression.",
+    en: "Ability to maintain performance under pressure.",
   },
   "soft-skills-title-5": {
     fr: "Curiosité & Apprentissage continu",
     en: "Curiosity & Continuous Learning",
   },
+  "soft-skills-text-5": {
+    fr: "Passionné par les nouvelles technologies et les défis complexes.",
+    en: "Passionate about new technologies and complex challenges.",
+  },
   "soft-skills-title-6": {
     fr: "Travail en équipe & Leadership",
     en: "Teamwork & Leadership",
   },
+  "soft-skills-text-6": {
+    fr: "Capacité à collaborer efficacement et à guider un groupe vers les objectifs.",
+    en: "Ability to collaborate effectively and lead a group towards objectives.",
+  },
+  // THEORICAL SKILLS
   "theoritical-skills-title": {
     fr: "Compétences Théoriques",
     en: "Theoretical Skills",
