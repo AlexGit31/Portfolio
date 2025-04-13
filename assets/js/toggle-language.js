@@ -21,9 +21,34 @@ const translations = {
     fr: "Compétences en Programmation",
     en: "Programming Skills",
   },
+  // SOFT SKILLS
   "soft-skills-title": {
     fr: "Mes Soft Skills",
     en: "My Soft Skills",
+  },
+  "soft-skills-title-1": {
+    fr: "Determination & Persévérance",
+    en: "Determination & Perseverance",
+  },
+  "soft-skills-title-2": {
+    fr: "Autonomie & Prise d'initiative",
+    en: "Autonomy & Initiative",
+  },
+  "soft-skills-title-3": {
+    fr: "Capacité d'adaptation",
+    en: "Adaptability",
+  },
+  "soft-skills-title-4": {
+    fr: "Gestion du stress & Résilience",
+    en: "Stress Management & Resilience",
+  },
+  "soft-skills-title-5": {
+    fr: "Curiosité & Apprentissage continu",
+    en: "Curiosity & Continuous Learning",
+  },
+  "soft-skills-title-6": {
+    fr: "Travail en équipe & Leadership",
+    en: "Teamwork & Leadership",
   },
   "theoritical-skills-title": {
     fr: "Compétences Théoriques",
