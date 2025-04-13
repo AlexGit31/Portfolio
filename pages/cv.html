@@ -323,8 +323,12 @@
             <div class="contact-card">
               <i class="fas fa-envelope"></i>
               <p>alex31.eva@icloud.com</p>
-              <button onclick="copyToClipboard('alex31.eva@icloud.com')">
-                <i class="fas fa-copy"></i> Copier
+              <button
+                id="copy-email"
+                onclick="copyToClipboard('alex31.eva@icloud.com')"
+              >
+                <i class="fas fa-copy"></i>
+                <span id="copy-email-text">Copier</span>
               </button>
             </div>
           </div>

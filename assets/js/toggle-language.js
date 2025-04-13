@@ -227,6 +227,10 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
 ● Preparatory Classes for the Grandes Écoles: Charlemagne Paris
 ● 2021 Laureate of From the Basque Country to the Grandes Écoles`,
   },
+  "copy-email-text": {
+    fr: "Copier",
+    en: "Copy",
+  },
 };
 
 function toggleLanguage2() {
