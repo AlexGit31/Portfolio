@@ -79,6 +79,55 @@ const translations = {
     fr: "Compétences Théoriques",
     en: "Theoretical Skills",
   },
+  "theoritical-skills-title-1": {
+    fr: "Statistiques",
+    en: "Statistics",
+  },
+  "theoritical-skills-text-1": {
+    fr: "Analyse, modélisation et interprétation des données.",
+    en: "Data analysis, modeling, and interpretation.",
+  },
+  "theoritical-skills-title-2": {
+    fr: "Théorie des Graphes & Combinatoire",
+    en: "Graph Theory & Combinatorial",
+  },
+  "theoritical-skills-text-2": {
+    fr: "Optimisation, réseaux et structures complexes.",
+    en: "Optimization, networks, and complex structures.",
+  },
+  "theoritical-skills-title-3": {
+    fr: "Automates",
+    en: "Automata",
+  },
+  "theoritical-skills-text-3": {
+    fr: "Langages formels, expressions régulières et reconnaissance de motifs.",
+    en: "Formal languages, regular expressions, and pattern recognition.",
+  },
+  "theoritical-skills-title-4": {
+    fr: "Base de données",
+    en: "Databases",
+  },
+  "theoritical-skills-text-4": {
+    fr: "Modélisation et conception de bases de données.",
+    en: "Database modeling and design.",
+  },
+  "theoritical-skills-title-5": {
+    fr: "Data Mining",
+    en: "Data Mining",
+  },
+  "theoritical-skills-text-5": {
+    fr: "Extraction de connaissances à partir de grandes bases de données.",
+    en: "Extracting knowledge from large databases.",
+  },
+  "theoritical-skills-title-6": {
+    fr: "Parsing",
+    en: "Parsing",
+  },
+  "theoritical-skills-text-6": {
+    fr: "Analyse syntaxique et conception d'analyseurs grammaticaux.",
+    en: "Syntax analysis and construction of grammatical analyzers.",
+  },
+  // LANGUAGES
   "langues-title": {
     fr: "Langues",
     en: "Languages",
