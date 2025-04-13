@@ -54,6 +54,20 @@ const books = [
     categories: ["calcul intégral", "théorie de la mesure"],
     cover: "/Portfolio/assets/covers/cassini-calcul-integral.jpeg",
   },
+  {
+    title: "Théorie des probabilités",
+    authors: ["Bernard Candelperghar"],
+    edition: "Calvage & Mounet",
+    categories: ["Probabilités", "théorie de la mesure"],
+    cover: "/Portfolio/assets/covers/Theorie-des-probabilites.jpg",
+  },
+  {
+    title: "cours d'algèbre",
+    authors: ["Michel Demazure"],
+    edition: "Cassini",
+    categories: ["algèbre"],
+    cover: "/Portfolio/assets/covers/cours-algebre-cassini.jpg",
+  },
 
   ,
 ];
