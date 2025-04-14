@@ -231,6 +231,93 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     fr: "Copier",
     en: "Copy",
   },
+  // PAGE PROJETS
+  "projets-title": {
+    fr: "Mes Projets",
+    en: "My Projects",
+  },
+  "projets-intro": {
+    fr: "Je fais ici la liste de mes projets !<br />J'y liste des projets d'école ainsi que mes projets personnels.",
+    en: "Here is the list of my projects !<br />I list school projects as well as personal projects.",
+  },
+  // -> Projet n°1
+  "dashbord-title": {
+    fr: "Projet Dashbord",
+    en: "Dashbord Project",
+  },
+  "dashbord-description": {
+    fr: "Dashbord des données de l'INSEE sur les salaires en France",
+    en: "INSEE salary data dashbord",
+  },
+  // -> Projet n°2
+  "portfolio-title": {
+    fr: "Projet Portfolio",
+    en: "Portfolio",
+  },
+  "portfolio-description": {
+    fr: "Portfolio de mes projets personnels",
+    en: "My personal projects portfolio",
+  },
+  // -> Projet n°3
+  "HammerSpoon-title": {
+    fr: "Projet HammerSpoon",
+    en: "HammerSpoon Project",
+  },
+  "HammerSpoon-description": {
+    fr: "Mon propre window manager",
+    en: "My own window manager",
+  },
+  // -> Projet n°4
+  "projet-bdd-title": {
+    fr: "Projet BDD",
+    en: "Database Project",
+  },
+  "projet-bdd-description": {
+    fr: "Site de gestion d'événements",
+    en: "Event management Website",
+  },
+  // -> Projet n°5
+  "projet-neovim-title": {
+    fr: "Projet Neovim",
+    en: "Neovim Project",
+  },
+  "projet-neovim-description": {
+    fr: "IDE personnalisé",
+    en: "My personal IDE",
+  },
+  // -> Projet n°6
+  "projet-musique-title": {
+    fr: "Projet Musique",
+    en: "Music Project",
+  },
+  "projet-musique-description": {
+    fr: "Téléchargeur de musique",
+    en: "Music Downloader",
+  },
+  "projet-gui-title": {
+    fr: "Projet GUI Python",
+    en: "Python GUI Project",
+  },
+  "projet-gui-description": {
+    fr: `Interface d'ev. Python`,
+    en: `Python v.e interface`,
+  },
+  "projet-ia-chess-title": {
+    fr: "Projet IA Echecs",
+    en: "Chess IA Project",
+  },
+  "projet-ia-chess-description": {
+    fr: "Mon propre Deep Blue",
+    en: "My own Deep Blue",
+  },
+  "projet-optimisation-title": {
+    fr: "Optimisation",
+    en: "Optimization",
+  },
+  "projet-optimisation-description": {
+    fr: "Optimisation de réseaux éléctriques",
+    en: "Optimization of electrical networks",
+  },
 };
 
 function toggleLanguage2() {
