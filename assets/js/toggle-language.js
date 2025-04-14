@@ -323,6 +323,10 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     fr: "Optimisation de réseaux éléctriques",
     en: "Optimization of electrical networks",
   },
+  copyright: {
+    fr: "© 2025 Alexis Evaristo - Tous droits reservés",
+    en: "© 2025 Alexis Evaristo - All rights reserved",
+  },
 };
 
 function toggleLanguage2() {
