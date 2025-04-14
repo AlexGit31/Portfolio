@@ -294,6 +294,7 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     fr: "Téléchargeur de musique",
     en: "Music Downloader",
   },
+  // -> Projet n°7
   "projet-gui-title": {
     fr: "Projet GUI Python",
     en: "Python GUI Project",
@@ -302,6 +303,7 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     fr: `Interface d'ev. Python`,
     en: `Python v.e interface`,
   },
+  // -> Projet n°8
   "projet-ia-chess-title": {
     fr: "Projet IA Echecs",
     en: "Chess IA Project",
@@ -310,6 +312,7 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     fr: "Mon propre Deep Blue",
     en: "My own Deep Blue",
   },
+  // -> Projet n°9
   "projet-optimisation-title": {
     fr: "Optimisation",
     en: "Optimization",
