@@ -3,7 +3,9 @@ body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
 }
-
+p {
+  white-space: pre-wrap;
+}
 .projects-wrapper {
   display: flex;
   justify-content: center;

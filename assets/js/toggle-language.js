@@ -237,8 +237,10 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     en: "My Projects",
   },
   "projets-intro": {
-    fr: "Je fais ici la liste de mes projets !<br />J'y liste des projets d'école ainsi que mes projets personnels.",
-    en: "Here is the list of my projects !<br />I list school projects as well as personal projects.",
+    fr: `Je fais ici la liste de mes projets !
+    J'y liste des projets d'école ainsi que mes projets personnels.`,
+    en: `Here is the list of my projects !
+    I list school projects as well as personal projects.`,
   },
   // -> Projet n°1
   "dashbord-title": {
