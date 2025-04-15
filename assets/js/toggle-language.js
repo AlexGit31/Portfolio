@@ -327,6 +327,14 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
     fr: "© 2025 Alexis Evaristo - Tous droits reservés",
     en: "© 2025 Alexis Evaristo - All rights reserved",
   },
+  "email-perso": {
+    fr: "Mail perso :",
+    en: "Personal mail :",
+  },
+  "email-ecole": {
+    fr: "Mail Ecole :",
+    en: "School mail :",
+  },
 };
 
 function toggleLanguage2() {
