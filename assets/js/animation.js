@@ -71,3 +71,10 @@ function animate() {
   lines = lines.filter((line) => line.y + line.length > 0);
 }
 animate();
+
+function toggleMenu() {
+  const navUl = document.querySelector("header nav ul");
+  const burger = document.querySelector(".hamburger");
+  navUl.classList.toggle("menu-open");
+  burger.classList.toggle("open");
+}
