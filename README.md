@@ -15,7 +15,7 @@ Check it out here 👉 [alexis-portfolio.com](https://alexis-portfolio.com)
 
 ## 📬 Contact
 
-Feel free to reach out via [LinkedIn](www.linkedin.com/in/alexis-evaristo) or email me at `your.email@example.com`.
+Feel free to reach out via [LinkedIn](www.linkedin.com/in/alexis-evaristo).
 
 ---
 
