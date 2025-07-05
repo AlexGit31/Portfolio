@@ -3,6 +3,8 @@
 Bienvenue sur le dépôt de mon site web personnel !  
 Ce site met en valeur mes projets, mes compétences et mon parcours. Il a été conçu avec simplicité, clarté et élégance.
 
+👉 [🇬🇧 Version anglaise](README.md)
+
 ## 🚀 Site en ligne
 
 Disponible ici 👉 [alexis-portfolio.com](https://alexis-portfolio.com)
