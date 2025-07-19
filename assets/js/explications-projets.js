@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const projectDetails = {
     // Version Française
+    "Dev Fullstack":
+      "Projet Fullstack, épuré et zen frontend en react et typeScript et backend en node. Gestion de base de donnée d'utilisateur et pages sécurisées par tokens JWT.",
+    "Projet Graphes":
+      "Projet d'école. Algorithme d'optimisation et structure de données avancées.",
     "Projet Dashbord":
       "Projet d'école. Dashbord qui reprend les données de l'INSEE sur les salaires en France. Certains indicateurs dynamiques mettent en avant les disparités entre les genres.",
     "Projet Portfolio":
@@ -27,6 +31,10 @@ document.addEventListener("DOMContentLoaded", function () {
     Optimisation:
       "Projet personnel. Optimisation du réseau éléctrique de la ville de Bayonne. Utilisation de trois algorithme : Prime, Dijkstra, k-moyenne.",
     // Version Anglaise
+    "Fullstack Project":
+      "Fullstack project, clean and zen frontend in react and typeScript and backend in node. User database and secure pages with JWT tokens.",
+    "Graphes Project":
+      "School project. Optimization algorithm and advanced data structures.",
     "Dashbord Project":
       "School project. Dashboard that takes data from INSEE on salaries in France. Some dynamic indicators highlight gender disparities.",
     Portfolio:
