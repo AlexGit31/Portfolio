@@ -5,18 +5,8 @@
   padding: 1rem;
 }
 
-canvas {
-  width: 100% !important;
-  height: auto !important;
-  max-height: 400px;
-}
-
 @media (max-width: 768px) {
   .chart-container {
     padding: 0.5rem;
-  }
-
-  canvas {
-    max-height: 300px;
   }
 }
