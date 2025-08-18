@@ -227,6 +227,14 @@ I'm passionate about Mathematics and Computer Science, particularly Probability 
 ● Preparatory Classes for the Grandes Écoles: Charlemagne Paris
 ● 2021 Laureate of From the Basque Country to the Grandes Écoles`,
   },
+  "github-infos": {
+    fr: `Mes Projets
+
+Mes projets sont divers, je les ai tous répertoriés dans la page projets du site, certains des codes sont disponibles sur mon Gitbub !`,
+    en: `My Projects
+
+My projects are diverse, I have all my projects listed on the projects page of the website, some of the codes are available on my Gitbub !`,
+  },
   "copy-email-text": {
     fr: "Copier",
     en: "Copy",

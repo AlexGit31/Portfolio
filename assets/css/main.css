@@ -149,6 +149,9 @@ main {
 .block:nth-child(3) {
   animation-delay: 1.5s;
 }
+.block:nth-child(4) {
+  animation-delay: 2s;
+}
 
 .block:hover {
   transform: translateY(-5px);

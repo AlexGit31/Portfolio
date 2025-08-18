@@ -7,11 +7,36 @@
   max-width: 800px;
 }
 
+.github-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espace entre l'image et le texte */
+  width: 80%;
+  max-width: 800px;
+}
+
 .profile-img {
   width: 150px;
   height: 150px;
   border-radius: 50%; /* Pour un effet arrondi */
   object-fit: cover;
+}
+
+#photo {
+  width: 80%;
+  max-width: 800px;
+  height: 250px; /* ajuste selon ce que tu veux voir de l'image */
+  border-radius: 8px; /* conserve les coins arrondis si tu veux */
+  overflow: hidden;
+
+  /* Image en fond */
+  background-image: url("../Photos/photo13.JPG");
+  background-size: cover; /* remplissage sans déformation */
+  background-position: center center; /* centre la zone visible de l'image */
+  background-repeat: no-repeat;
+
+  /* si tu veux garder le flou et la transparence */
+  backdrop-filter: blur(3px);
 }
 @media (max-width: 768px) {
   .profile-wrapper {
