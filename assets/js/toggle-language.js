@@ -170,9 +170,9 @@ const translations = {
     fr: "Projets",
     en: "Projects",
   },
-  "nav-bibliographie": {
-    fr: "Bibliographie",
-    en: "Bibliography",
+  "nav-recherches": {
+    fr: "Recherches",
+    en: "Researches",
   },
   /* Biliographie */
   "biliographie-title": {

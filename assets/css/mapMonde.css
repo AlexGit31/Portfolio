@@ -1,0 +1,197 @@
+:root {
+  --bg: #0b0b0d;
+  --panel: #1a1b20;
+  --muted: #9a9a9a;
+  --text: #f0f0f0;
+  --accent: #ff3b3b;
+  --border: #2b2c34;
+  --shadow: rgba(0, 0, 0, 0.6);
+}
+
+.travel-map-wrapper {
+  height: 420px;
+  width: 65%;
+  position: relative;
+  background: var(--bg);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#travel-map {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+/* --- Correction des lignes blanches Leaflet --- */
+.leaflet-container .leaflet-tile {
+  background: var(--bg);
+  border: none !important;
+}
+
+/* --- Épingles personnalisées --- */
+/* Épingle rouge avec glow chaleureux */
+/* Épingle rouge moderne et sobre */
+.pin-red {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border: 2px solid #fff2; /* léger bord clair pour le contraste sur fond sombre */
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 6px rgba(255, 43, 43, 0.12),
+    0 6px 14px rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -100%); /* pointe virtuelle en bas */
+  position: relative;
+}
+.pin-red::after {
+  /* petite pointe triangulaire */
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid var(--accent);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+}
+.pin-red:hover {
+  box-shadow:
+    0 0 0 8px rgba(255, 43, 43, 0.18),
+    0 10px 22px rgba(0, 0, 0, 0.7);
+}
+
+/* Animation hover : glow plus intense et couleur orangée pour donner du peps */
+
+.pin-red:hover {
+  transform: translate(-50%, -105%) scale(1.15);
+  box-shadow:
+    0 0 15px rgba(255, 120, 80, 0.9),
+    0 0 25px rgba(255, 120, 80, 0.7),
+    0 0 40px rgba(255, 120, 80, 0.5);
+}
+
+/* Ajout d’une petite pulsation continue quand on survole */
+.pin-red:hover {
+  animation: pulse-glow 1.2s infinite alternate;
+}
+
+/* Keyframes pour effet pulsant */
+@keyframes pulse-glow {
+  from {
+    box-shadow:
+      0 0 15px rgba(255, 120, 180, 0.9),
+      0 0 25px rgba(255, 120, 180, 0.7),
+      0 0 40px rgba(255, 120, 180, 0.5);
+  }
+  to {
+    box-shadow:
+      0 0 25px rgba(255, 120, 149, 1),
+      0 0 40px rgba(255, 120, 150, 0.9),
+      0 0 60px rgba(255, 120, 167, 0.7);
+  }
+}
+
+/* --- Popups --- */
+.leaflet-popup-content-wrapper {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px var(--shadow);
+  padding: 6px;
+}
+.leaflet-popup-tip {
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.popup {
+  display: grid;
+  gap: 8px;
+  min-width: 220px;
+  max-width: 340px;
+}
+.popup h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.popup .coords {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.gallery {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.thumb {
+  flex: 0 0 96px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Légende + bouton --- */
+.legend {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: rgba(26, 27, 32, 0.9);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  display: grid;
+  gap: 8px;
+  backdrop-filter: blur(6px);
+}
+.legend .dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+#toggle-view {
+  padding: 8px 12px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+#toggle-view:hover {
+  background: #ff5555;
+  transform: scale(1.05);
+}
+
+/* Fond transparent et texte discret */
+.leaflet-control-attribution {
+  background: transparent !important; /* fond transparent */
+  color: #aaa !important; /* couleur du texte */
+  font-size: 11px; /* taille plus discrète */
+  padding: 2px 4px; /* un peu de marge intérieure */
+}

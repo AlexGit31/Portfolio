@@ -52,9 +52,7 @@
           <li><a href="./loisirs.html" id="nav-loisirs">Loisirs</a></li>
           <li><a href="./projets.html" id="nav-projets">Projets</a></li>
           <li>
-            <a href="./bibliographie.html" id="nav-bibliographie"
-              >Bibliographie</a
-            >
+            <a href="./pages/recherches.html" id="nav-recherches">Recherches</a>
           </li>
         </ul>
       </nav>
@@ -67,6 +65,30 @@
         <p id="loisirs-intro">
           L'une de mes grandes passions est la photographie!
         </p>
+      </section>
+
+      <!-- On ajoute ici la map monde avec toutes les places que j'ai visité-->
+      <section class="content-section">
+        <div class="travel-map-wrapper">
+          <div id="travel-map" aria-label="Carte de mes voyages"></div>
+        </div>
+
+        <!-- Leaflet CSS -->
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          crossorigin=""
+        />
+        <!-- Ton CSS personnalisé -->
+        <link rel="stylesheet" href="../assets/css/mapMonde.css" />
+
+        <!-- Leaflet JS -->
+        <script
+          src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          crossorigin=""
+        ></script>
+        <!-- Ton JS personnalisé -->
+        <script src="../assets/js/mapMonde.js"></script>
       </section>
 
       <!-- Section de la galerie photo -->
