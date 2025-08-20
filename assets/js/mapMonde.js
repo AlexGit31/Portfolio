@@ -16,37 +16,46 @@ const PLACES = [
     name: "Bayonne, France",
     lat: 43.4929,
     lng: -1.4748,
-    photos: ["https://images.unsplash.com/photo-1604328698692-49fa29a26497"],
+    photos: [
+      "/assets/Photos/France/Bayonne/bayonne1.png",
+      "/assets/Photos/France/Bayonne/bayonne2.png",
+      "/assets/Photos/France/Bayonne/bayonne3.png",
+    ],
   },
   {
     name: "Anglet, France",
     lat: 43.48,
     lng: -1.521,
-    photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e"],
+    photos: ["/assets/Photos/France/Anglet/anglet1.png"],
   },
   {
     name: "Biarritz, France",
     lat: 43.4832,
     lng: -1.5586,
-    photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e"],
+    photos: [
+      "/assets/Photos/France/Biarritz/biarritz1.png",
+      "/assets/Photos/France/Biarritz/biarritz2.png",
+      "/assets/Photos/France/Biarritz/biarritz3.png",
+      "/assets/Photos/France/Biarritz/biarritz4.png",
+    ],
   },
   {
     name: "Bordeaux, France",
     lat: 44.8378,
     lng: -0.5792,
-    photos: ["https://images.unsplash.com/photo-1502602898657-3e91760cbb34"],
+    photos: [],
   },
   {
     name: "Toulouse, France",
     lat: 43.6047,
     lng: 1.4442,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [],
   },
   {
     name: "Lille, France",
     lat: 50.6292,
     lng: 3.0573,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: ["/assets/Photos/France/Lille/lille1.png"],
   },
   {
     name: "Menton, France",
@@ -63,13 +72,16 @@ const PLACES = [
     name: "Nice, France",
     lat: 43.7102,
     lng: 7.262,
-    photos: ["https://images.unsplash.com/photo-1502602898657-3e91760cbb34"],
+    photos: [],
   },
   {
     name: "Versailles, France",
     lat: 48.8049,
     lng: 2.1204,
-    photos: ["https://images.unsplash.com/photo-1511739001486-6bfe10ce785f"],
+    photos: [
+      "/assets/Photos/France/Versailles/versailles1.png",
+      "/assets/Photos/France/Versailles/versailles2.png",
+    ],
   },
 
   // Angleterre
@@ -77,20 +89,20 @@ const PLACES = [
     name: "Londres, Angleterre",
     lat: 51.5074,
     lng: -0.1278,
-    photos: ["https://images.unsplash.com/photo-1463100099107-aa0980c362e6"],
+    photos: [],
   },
   {
     name: "Brighton, Angleterre",
     lat: 50.8225,
     lng: -0.1372,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [],
   },
   // Monaco
   {
     name: "Monaco",
     lat: 43.7384,
     lng: 7.4246,
-    photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e"],
+    photos: ["/assets/Photos/Monaco/monaco1.png"],
   },
 
   // Italie
@@ -98,25 +110,25 @@ const PLACES = [
     name: "Florence, Italie",
     lat: 43.7699,
     lng: 11.2556,
-    photos: ["https://images.unsplash.com/photo-1543340713-8df79677f22a"],
+    photos: [],
   },
   {
     name: "Murano, Italie",
     lat: 45.4586,
     lng: 12.3547,
-    photos: ["https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba"],
+    photos: [],
   },
   {
     name: "Burano, Italie",
     lat: 45.4857,
     lng: 12.416,
-    photos: ["https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba"],
+    photos: [],
   },
   {
     name: "Venise, Italie",
     lat: 45.4408,
     lng: 12.3155,
-    photos: ["https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba"],
+    photos: [],
   },
 
   // Espagne
@@ -124,7 +136,7 @@ const PLACES = [
     name: "Madrid, Espagne",
     lat: 40.4168,
     lng: -3.7038,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [],
   },
 
   // Portugal
@@ -132,31 +144,37 @@ const PLACES = [
     name: "Porto, Portugal",
     lat: 41.1579,
     lng: -8.6291,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Portugal/Porto/porto1.png",
+      "/assets/Photos/Portugal/Porto/porto2.png",
+    ],
   },
   {
     name: "Lisbonne, Portugal",
     lat: 38.7169,
     lng: -9.139,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Portugal/Lisbonne/lisbonne1.png",
+      "/assets/Photos/Portugal/Lisbonne/lisbonne2.png",
+    ],
   },
   {
     name: "Maia, Portugal",
     lat: 41.2357,
     lng: -8.619,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [],
   },
   {
     name: "Figueira da Foz, Portugal",
     lat: 40.15,
     lng: -8.8667,
-    photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e"],
+    photos: [],
   },
   {
     name: "Saint-Jacques-de-Compostelle, Espagne",
     lat: 42.8805,
     lng: -8.5457,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [],
   },
 
   // République Tchèque
@@ -164,7 +182,10 @@ const PLACES = [
     name: "Prague, République Tchèque",
     lat: 50.0755,
     lng: 14.4378,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/trip2025/photo22.JPG",
+      "/assets/Photos/trip2025/photo23.JPG",
+    ],
   },
 
   // Pays-Bas
@@ -172,13 +193,21 @@ const PLACES = [
     name: "Rotterdam, Pays-Bas",
     lat: 51.9244,
     lng: 4.4777,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Pays-Bas/Rotterdam/rotterdam1.png",
+      "/assets/Photos/Pays-Bas/Rotterdam/rotterdam2.png",
+      "/assets/Photos/Pays-Bas/Rotterdam/rotterdam3.png",
+    ],
   },
   {
     name: "Amsterdam, Pays-Bas",
     lat: 52.3676,
     lng: 4.9041,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Pays-Bas/Amsterdam/amsterdam1.png",
+      "/assets/Photos/Pays-Bas/Amsterdam/amsterdam2.png",
+      "/assets/Photos/Pays-Bas/Amsterdam/amsterdam3.png",
+    ],
   },
 
   // Belgique
@@ -186,25 +215,39 @@ const PLACES = [
     name: "Bruges, Belgique",
     lat: 51.2093,
     lng: 3.2247,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Belgique/Bruges/bruges1.png",
+      "/assets/Photos/Belgique/Bruges/bruges2.png",
+      "/assets/Photos/Belgique/Bruges/bruges3.png",
+    ],
   },
   {
     name: "Gand, Belgique",
     lat: 51.0543,
     lng: 3.7174,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Belgique/Gand/ghent1.png",
+      "/assets/Photos/Belgique/Gand/ghent2.png",
+      "/assets/Photos/Belgique/Gand/ghent3.png",
+    ],
   },
   {
     name: "Charleroi, Belgique",
     lat: 50.4114,
     lng: 4.4445,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Belgique/Charleroi/charleroi1.png",
+      "/assets/Photos/Belgique/Charleroi/charleroi2.png",
+    ],
   },
   {
     name: "Bruxelles, Belgique",
     lat: 50.8503,
     lng: 4.3517,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: [
+      "/assets/Photos/Belgique/Bruxelles/bruxelles1.png",
+      "/assets/Photos/Belgique/Bruxelles/bruxelles2.png",
+    ],
   },
   {
     name: "Anvers, Belgique",
