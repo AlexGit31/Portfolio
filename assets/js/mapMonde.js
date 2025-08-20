@@ -226,9 +226,9 @@ const PLACES = [
     lat: 51.0543,
     lng: 3.7174,
     photos: [
-      "/assets/Photos/Belgique/Gand/ghent1.png",
-      "/assets/Photos/Belgique/Gand/ghent2.png",
-      "/assets/Photos/Belgique/Gand/ghent3.png",
+      "/assets/Photos/Belgique/Ghent/ghent1.png",
+      "/assets/Photos/Belgique/Ghent/ghent2.png",
+      "/assets/Photos/Belgique/Ghent/ghent3.png",
     ],
   },
   {
