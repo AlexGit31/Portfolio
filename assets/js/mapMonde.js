@@ -5,7 +5,12 @@ const PLACES = [
     name: "Paris, France",
     lat: 48.8566,
     lng: 2.3522,
-    photos: ["https://images.unsplash.com/photo-1502602898657-3e91760cbb34"],
+    photos: [
+      "/assets/Photos/France/Paris/paris1.png",
+      "/assets/Photos/France/Paris/paris2.png",
+      "/assets/Photos/France/Paris/paris3.png",
+      "/assets/Photos/France/Paris/paris4.png",
+    ],
   },
   {
     name: "Bayonne, France",
@@ -47,7 +52,12 @@ const PLACES = [
     name: "Menton, France",
     lat: 43.7745,
     lng: 7.4975,
-    photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e"],
+    photos: [
+      "/assets/Photos/France/Menton/menton1.png",
+      "/assets/Photos/France/Menton/menton2.png",
+      "/assets/Photos/France/Menton/menton3.png",
+      "/assets/Photos/France/Menton/menton4.png",
+    ],
   },
   {
     name: "Nice, France",
