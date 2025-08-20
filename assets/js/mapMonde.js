@@ -271,7 +271,7 @@ const PLACES = [
     name: "Busan, Corée du Sud",
     lat: 35.1796,
     lng: 129.0756,
-    photos: ["/assets/Photos/photo13.png", "/assets/Photos/photo14.png"],
+    photos: ["/assets/Photos/photo13.JPG", "/assets/Photos/photo14.JPG"],
   },
 ];
 
