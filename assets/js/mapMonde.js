@@ -253,7 +253,7 @@ const PLACES = [
     name: "Anvers, Belgique",
     lat: 51.2194,
     lng: 4.4025,
-    photos: ["https://images.unsplash.com/photo-1505761671935-60b3a7427bad"],
+    photos: ["/assets/Photos/Belgique/Anvers/anvers1.png"],
   },
 
   // Corée du Sud
@@ -261,13 +261,17 @@ const PLACES = [
     name: "Séoul, Corée du Sud",
     lat: 37.5665,
     lng: 126.978,
-    photos: ["https://images.unsplash.com/photo-1549692520-acc6669e2f0c"],
+    photos: [
+      "/assets/Photos/photo12.png",
+      "/assets/Photos/photo11.png",
+      "/assets/Photos/photo15.png",
+    ],
   },
   {
     name: "Busan, Corée du Sud",
     lat: 35.1796,
     lng: 129.0756,
-    photos: ["https://images.unsplash.com/photo-1549692520-acc6669e2f0c"],
+    photos: ["/assets/Photos/photo13.png", "/assets/Photos/photo14.png"],
   },
 ];
 
