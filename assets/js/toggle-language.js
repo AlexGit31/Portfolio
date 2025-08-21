@@ -174,10 +174,27 @@ const translations = {
     fr: "Recherches",
     en: "Researches",
   },
-  /* Biliographie */
+  /* Biliographie -> Recherches */
+  "recherches-title": {
+    fr: "Recherches",
+    en: "Researches",
+  },
+
   "biliographie-title": {
     fr: "Bibliographie",
     en: "Bibliography",
+  },
+  "recherches-intro": {
+    fr: `Bienvenue sur la page de mes recherches, ici je regroupe mes
+          recherches ainsi qu'une bibliographie des livres que je recommandes ou
+          qui m'ont été utile dans mon parcours scientifique.`,
+    en: `Welcome to the page of my researches, here I group my researches as well as a bibliography of books I recommend or that were useful in my scientific career.`,
+  },
+  "recherches-diffalgebra": {
+    fr: `Voici mes premières recherches, elles portent sur l'algébre
+          différentielle et la recherche de solution en série de Puiseux à des
+          polynômes différentiels en une variable.`,
+    en: `Here are my first researches, they concern the differential algebra and the search for a solution in a series of Puiseux to differential polynomials in one variable.`,
   },
   "bibliographie-intro": {
     fr: "Je regroupe ici mes livres de mathématiques et d'informatique !",
@@ -193,6 +210,10 @@ const translations = {
     en: "My Hobbies",
   },
   "loisirs-intro": {
+    fr: "Voyageur curieux et photographe amateur, je partage ici mes découvertes et mes images.",
+    en: "Curious traveller and amateur photographer, I share here my discoveries and images.",
+  },
+  "galerie-intro": {
     fr: "L'une de mes grandes passions est la photographie!",
     en: "One of my great passions is photography!",
   },
