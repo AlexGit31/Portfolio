@@ -352,6 +352,25 @@ My projects are diverse, I have all my projects listed on the projects page of t
     fr: "Optimisation de réseaux éléctriques",
     en: "Optimization of electrical networks",
   },
+  // -> Projet n°10
+  "graphe-title": {
+    fr: "Projet Graphe",
+    en: "Graph Project",
+  },
+  "graphe-description": {
+    fr: "Implémentation en language c de l'algorithme de Dinic.",
+    en: "Implementation in c of the Dinic algorithm.",
+  },
+  // -> Projet n°11
+  "fullstack-title": {
+    fr: "Projet Fullstack",
+    en: "Fullstack Project",
+  },
+  "fullstack-description": {
+    fr: "Fullstack projet, toujours en développement.",
+    en: "Fullstack project, still in development.",
+  },
+
   copyright: {
     fr: "© 2025 Alexis Evaristo - Tous droits reservés",
     en: "© 2025 Alexis Evaristo - All rights reserved",
