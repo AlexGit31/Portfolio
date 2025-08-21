@@ -183,8 +183,8 @@ const PLACES = [
     lat: 50.0755,
     lng: 14.4378,
     photos: [
-      "/assets/Photos/trip2025/photo22.JPG",
-      "/assets/Photos/trip2025/photo23.JPG",
+      "/assets/Photos/trip2025/Photo22.JPG",
+      "/assets/Photos/trip2025/Photo23.JPG",
     ],
   },
 
