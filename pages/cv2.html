@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./../assets/css/main.css" />
     <link rel="stylesheet" href="./../assets/css/contact-language.css" />
     <link rel="stylesheet" href="./../assets/css/contact.css" />
+    <link rel="stylesheet" href="./../assets/css/cv2.css" />
   </head>
   <body>
     <!-- Canvas pour l'animation de fond -->
@@ -56,31 +57,72 @@
     <main>
       <!-- Section de présentation / "Hero" -->
       <section class="hero">
-        <h1 id="My-Contact-Title">Me contacter</h1>
-        <p id="My-Contact-Intro">
-          N'hésitez pas à me contacter en m'envoyant un email à l'une des
-          adresses suivante !
-        </p>
+        <h1 id="mon-cv-titre">Mon CV</h1>
+        <!-- <p id="mon-cv-intro">Voici mon parcours !</p> -->
+      </section>
+      <section class="timeline-section">
+        <h2 id="parcours-academique-title">Parcours académique</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2024 / 2027</div>
+            <div class="timeline-content">
+              <p id="academique-ligne1.1">
+                Cycle ingénieur Polytech Lille – Informatique, Statistique &
+                Intelligence Artificielle
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2021 / 2024</div>
+            <div class="timeline-content">
+              <p id="academique-ligne2.1">
+                Classe préparatoire aux grandes écoles – Lycée Charlemagne
+                (Paris) – MPSI/MP
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 / 2021</div>
+            <div class="timeline-content">
+              <p id="academique-ligne3.1">
+                Bac général – Mathématique & Physique – mention Bien
+              </p>
+              <p id="academique-ligne3.2">
+                Bourse “Du Pays Basque aux Grandes Écoles”
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- Blocs principaux 
-         On supprime le contenu "direct" (h2/p) 
-         et on le stocke dans data-text, 
-         pour l'afficher lettre par lettre en JS -->
-      <section class="content-section">
-        <div class="block" id="contact-perso">
-          <p class="email-contact">
-            <span id="email-perso">Mail perso :</span>
-            <a href="mailto:alex31.eva@icloud.com">alex31.eva@icloud.com</a>
-          </p>
+      <section class="timeline-section">
+        <h2 id="experience-profesionnelle-titre">
+          Expériences professionnelles
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">Été 2025</div>
+            <div class="timeline-content">
+              <p id="exp-pro-1">
+                Stage de recherche – Laboratoire CRISTAL (Université de Lille),
+                équipe CHPF
+              </p>
+            </div>
+          </div>
+
+          <!-- futurs stages ici -->
         </div>
-        <div class="block" id="contact-ecole">
-          <p class="email-contact">
-            <span id="email-ecole">Mail Ecole :</span>
-            <a href="mailto:alexis.evaristo@polytech-lille.net"
-              >alexis.evaristo@polytech-lille.net</a
-            >
-          </p>
+      </section>
+      <section class="cv-download">
+        <div class="cv-buttons">
+          <a href="../assets/cv/cv-fr.pdf" class="cv-btn" target="_blank"
+            >Télécharger CV</a
+          >
+          <a href="../assets/cv/cv-en.pdf" class="cv-btn" target="_blank"
+            >Download Resume</a
+          >
         </div>
       </section>
     </main>
@@ -94,6 +136,5 @@
     </footer>
     <script src="./../assets/js/index.js"></script>
     <script src="./../assets/js/toggle-language.js"></script>
-    <!-- On ajoute ici le script pour les données de visites du site -->
   </body>
 </html>
