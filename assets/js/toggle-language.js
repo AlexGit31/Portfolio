@@ -1,5 +1,41 @@
 const translations = {
   /* Page de CV */
+  "mon-cv-titre": {
+    fr: "Mon CV",
+    en: "My Journey",
+  },
+  "parcours-academique-title": {
+    fr: "Parcours académique",
+    en: "Academic path",
+  },
+  "academique-ligne1.1": {
+    fr: "Cycle ingénieur Polytech Lille – Informatique, Statistique & Intelligence Artificielle",
+    en: "Polytech Lille Engineering Degree – Computer Science, Statistics & Artificial Intelligence",
+  },
+  "academique-ligne2.1": {
+    fr: `Classe préparatoire aux grandes écoles – Lycée Charlemagne
+                (Paris) – MPSI/MP`,
+    en: " Preparatory class for The Grandes Ecoles – Lycée Charlemagne (Paris) –Mathematics & Physics",
+  },
+  "academique-ligne3.1": {
+    fr: "Bac général – Mathématique & Physique – mention Bien",
+    en: "General Baccalaureate – Mathematics & Physics – grade: Good",
+  },
+  "academique-ligne3.1": {
+    fr: `Bourse “Du Pays Basque aux Grandes Écoles”`,
+    en: `“From the Basque Country to the Grandes Écoles” Scholarship`,
+  },
+  "experience-profesionnelle-titre": {
+    fr: "Expériences professionnelles",
+    en: "Work experience",
+  },
+  "exp-pro-1": {
+    fr: `Stage de recherche – Laboratoire CRISTAL (Université de Lille),
+                équipe CHPF`,
+    en: `Research internship – CRISTAL Laboratory (University of Lille),
+CHPF team`,
+  },
+
   "my-resume-title": {
     fr: "Mon CV",
     en: "My Resume",

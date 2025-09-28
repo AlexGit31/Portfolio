@@ -1,0 +1,88 @@
+.timeline-section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.timeline-section h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 30px;
+  border-left: 4px solid #444;
+  padding-left: 10px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.timeline-date {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #444;
+  text-align: right;
+  border-right: 2px solid #ddd;
+  padding-right: 15px;
+}
+
+.timeline-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.timeline-content p {
+  margin: 0 0 6px 0;
+}
+
+.cv-download {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.cv-download h2 {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.cv-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cv-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background: #444;
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    background 0.3s,
+    transform 0.2s;
+}
+
+.cv-btn:hover {
+  background: #222;
+  transform: translateY(-2px);
+}
