@@ -21,7 +21,7 @@ const translations = {
     fr: "Bac général – Mathématique & Physique – mention Bien",
     en: "General Baccalaureate – Mathematics & Physics – grade: Good",
   },
-  "academique-ligne3.1": {
+  "academique-ligne3.2": {
     fr: `Bourse “Du Pays Basque aux Grandes Écoles”`,
     en: `“From the Basque Country to the Grandes Écoles” Scholarship`,
   },
@@ -31,9 +31,9 @@ const translations = {
   },
   "exp-pro-1": {
     fr: `Stage de recherche – Laboratoire CRISTAL (Université de Lille),
-                équipe CHPF`,
+                équipe CFHP`,
     en: `Research internship – CRISTAL Laboratory (University of Lille),
-CHPF team`,
+CFHP team`,
   },
 
   "my-resume-title": {
