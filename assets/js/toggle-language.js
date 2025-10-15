@@ -419,6 +419,19 @@ My projects are diverse, I have all my projects listed on the projects page of t
     fr: "Mail Ecole :",
     en: "School mail :",
   },
+  // Page Mosaic
+  "My-Mosaique-Title": {
+    fr: "Mosaique de photos",
+    en: "Picture Mosaic",
+  },
+  "My-Mosaique-Intro": {
+    fr: "Voici une mosaique de mes photos préférées !",
+    en: "Here is a mosaic of my favorite pictures !",
+  },
+  "mosaic-button": {
+    fr: "Plus de photos",
+    en: "More Pictures",
+  },
 };
 
 function toggleLanguage2() {
