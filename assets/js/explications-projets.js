@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   projectButtons.forEach((button) => {
     button.addEventListener("click", () => {
+      event.preventDefault();
       const projectTitle = button
         .closest(".project-card")
         .querySelector(".project-title").textContent;
