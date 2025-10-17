@@ -15,3 +15,7 @@
 .email-contact a:hover {
   background-color: rgba(0, 255, 0, 0.4); /* Accentuation au survol */
 }
+
+#contact-ecole {
+  margin-bottom: 15em;
+}
