@@ -296,6 +296,18 @@ My projects are diverse, I have all my projects listed on the projects page of t
     fr: "Copier",
     en: "Copy",
   },
+  interests: {
+    fr: `Mes centre d'intérêt
+
+● Deep Learning
+● Deep RL
+● Finance Quantitative`,
+    en: `My interests
+
+● Deep Learning
+● Deep RL
+● Quantitative Finance`,
+  },
   // PAGE PROJETS
   "projets-title": {
     fr: "Mes Projets",
