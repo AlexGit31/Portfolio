@@ -1,48 +1,90 @@
 // Code pour la mosaïque :
 
-// Attend que tout le contenu HTML de la page soit chargé avant d'exécuter le script
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Ciblez le conteneur HTML
+  // 1. Ciblez le conteneur
   const container = document.querySelector(".mosaic-container");
 
   // --- Vos paramètres ---
-  const totalPhotos = 55; // Mettez le nombre total de photos que vous avez
-  const photoNumberStart = 2; // Le numéro de la première photo (ex: photo2.JPG)
+  const totalPhotos = 55;
+  const photoNumberStart = 2;
   const basePath = "./../assets/Photos/mosaique-web-opti/";
   // ------------------------
 
-  // 2. Créez une variable pour stocker tout le HTML
+  // 2. Création de la chaîne HTML
   let htmlContent = "";
-
-  // 3. Créez une boucle
   for (let i = 0; i < totalPhotos; i++) {
-    // Calcule le numéro du fichier (commence à 2, puis 3, 4...)
     let photoIndex = photoNumberStart + i;
-
-    // Calcule le numéro pour le texte 'alt' (commence à 1, puis 2, 3...)
     let altIndex = i + 1;
 
-    // Ajoute le HTML pour chaque photo à la variable
-    // Notez l'utilisation des "backticks" (`) pour créer une chaîne de caractères sur plusieurs lignes
+    // --- LA MODIFICATION IMPORTANTE EST ICI ---
+    // On n'utilise pas 'src', mais 'data-src'.
+    // On ajoute aussi une classe 'lazy-load-target' au 'div' parent
+    // pour que notre "surveillant" puisse le trouver.
     htmlContent += `
-      <div class="mosaic-item">
+      <div class="mosaic-item lazy-load-target">
         <img 
-          src="${basePath}photo${photoIndex}.JPG" 
+          data-src="${basePath}photo${photoIndex}.JPG" 
           alt="Mosaïque ${altIndex}" 
         />
       </div>
     `;
   }
 
-  // 4. Insérez tout le HTML généré dans le conteneur en une seule fois
-  // C'est beaucoup plus rapide que d'ajouter les éléments un par un
+  // 3. Insérez le HTML (rapide et efficace)
   if (container) {
     container.innerHTML = htmlContent;
   } else {
     console.error(
       'Erreur : Le conteneur ".mosaic-container" n\'a pas été trouvé.',
     );
+    return; // Arrête le script si le conteneur n'existe pas
   }
+
+  // --- 4. AJOUT : L'INTERSECTION OBSERVER ---
+
+  // On sélectionne tous les items que l'on veut "surveiller"
+  const lazyItems = document.querySelectorAll(".lazy-load-target");
+
+  // Configuration de l'observer
+  const options = {
+    // 'rootMargin' permet de charger l'image un peu avant
+    // qu'elle n'arrive à l'écran (ex: 200px avant)
+    rootMargin: "0px 0px 200px 0px",
+    threshold: 0.01, // Se déclenche dès que 1% de l'item est visible
+  };
+
+  // La fonction qui sera appelée quand un item devient visible
+  const lazyLoadCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      // Si l'item est maintenant visible ('isIntersecting')
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        const img = item.querySelector("img");
+
+        // On prend le 'data-src' et on le met dans 'src'
+        if (img && img.dataset.src) {
+          img.src = img.dataset.src;
+
+          // (Optionnel) On peut écouter l'événement 'onload'
+          // de l'image pour ajouter une classe (ex: 'fade-in')
+          img.onload = () => {
+            img.style.opacity = "1"; // Effet simple de fondu
+          };
+        }
+
+        // On arrête de surveiller cet item, son travail est fait
+        observer.unobserve(item);
+      }
+    });
+  };
+
+  // On crée l'observer et on lui dit quoi faire
+  const observer = new IntersectionObserver(lazyLoadCallback, options);
+
+  // On lance la surveillance sur tous nos items
+  lazyItems.forEach((item) => {
+    observer.observe(item);
+  });
 });
 
 // ---------------------------
