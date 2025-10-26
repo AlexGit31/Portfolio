@@ -1,5 +1,50 @@
 // Code pour la mosaïque :
 
+// Attend que tout le contenu HTML de la page soit chargé avant d'exécuter le script
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Ciblez le conteneur HTML
+  const container = document.querySelector(".mosaic-container");
+
+  // --- Vos paramètres ---
+  const totalPhotos = 55; // Mettez le nombre total de photos que vous avez
+  const photoNumberStart = 2; // Le numéro de la première photo (ex: photo2.JPG)
+  const basePath = "./../assets/Photos/mosaique-web-opti/";
+  // ------------------------
+
+  // 2. Créez une variable pour stocker tout le HTML
+  let htmlContent = "";
+
+  // 3. Créez une boucle
+  for (let i = 0; i < totalPhotos; i++) {
+    // Calcule le numéro du fichier (commence à 2, puis 3, 4...)
+    let photoIndex = photoNumberStart + i;
+
+    // Calcule le numéro pour le texte 'alt' (commence à 1, puis 2, 3...)
+    let altIndex = i + 1;
+
+    // Ajoute le HTML pour chaque photo à la variable
+    // Notez l'utilisation des "backticks" (`) pour créer une chaîne de caractères sur plusieurs lignes
+    htmlContent += `
+      <div class="mosaic-item">
+        <img 
+          src="${basePath}photo${photoIndex}.JPG" 
+          alt="Mosaïque ${altIndex}" 
+        />
+      </div>
+    `;
+  }
+
+  // 4. Insérez tout le HTML généré dans le conteneur en une seule fois
+  // C'est beaucoup plus rapide que d'ajouter les éléments un par un
+  if (container) {
+    container.innerHTML = htmlContent;
+  } else {
+    console.error(
+      'Erreur : Le conteneur ".mosaic-container" n\'a pas été trouvé.',
+    );
+  }
+});
+
 // ---------------------------
 // 1. Mélange aléatoire
 // ---------------------------
