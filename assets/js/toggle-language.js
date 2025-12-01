@@ -301,11 +301,13 @@ My projects are diverse, I have all my projects listed on the projects page of t
 
 ● Deep Learning
 ● Deep RL
+● Bandits
 ● Finance Quantitative`,
     en: `My interests
 
 ● Deep Learning
 ● Deep RL
+● Bandits
 ● Quantitative Finance`,
   },
   // PAGE PROJETS
@@ -444,6 +446,16 @@ My projects are diverse, I have all my projects listed on the projects page of t
     fr: "Plus de photos",
     en: "More Pictures",
   },
+  lectures: {
+    fr: `Mes lectures récentes
+
+● Reinforcement Learning: An Introduction - Richard S. Sutton and Andrew G. Barto
+● Bandit Algorithms - Tor Lattimore and Csaba Szepesv´ ari`,
+    en: `My recent reading
+
+● Reinforcement Learning: An Introduction - Richard S. Sutton and Andrew G. Barto
+● Bandit Algorithms - Tor Lattimore and Csaba Szepesv´ ari`,
+  },
 };
 
 function toggleLanguage2() {
@@ -520,5 +532,5 @@ function restartTypewriterAnimation(element) {
     } else {
       clearInterval(interval);
     }
-  }, 50); // vitesse d'écriture
+  }, 30); // vitesse d'écriture
 }
