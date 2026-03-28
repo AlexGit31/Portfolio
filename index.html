@@ -1,208 +1,815 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BXN25XNQB2"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alexis Evaristo — Ingénieur IA & HPC</title>
+  <link rel="icon" type="image/png" href="./favicon.png" />
 
-      gtag("config", "G-BXN25XNQB2");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Site Web d'Alexis</title>
-    <!-- Optionnel : Import d'une police depuis Google Fonts -->
-    <!-- Favicon classique -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="stylesheet" href="./assets/css/contact-language.css" />
-    <script>
-      /**
-       * Animation du macaron GitHub
-       * @param {string} selector - sélecteur CSS
-       * @param {number} duration - durée de l'animation en ms
-       */
-      function animateGitHubMacaron(selector, duration = 1000) {
-        const element = document.querySelector(selector);
-        if (!element) return;
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BXN25XNQB2"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BXN25XNQB2');</script>
 
-        // On définit les styles initiaux
-        element.style.opacity = 0;
-        element.style.transform = "translateY(20px)";
-        element.style.transition = `opacity ${duration}ms ease-out, transform ${duration}ms ease-out`;
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
-        // On attend que le DOM ait appliqué les styles initiaux
-        setTimeout(() => {
-          element.style.opacity = 1;
-          element.style.transform = "translateY(0)";
-        }, 1000); // 50ms suffit pour forcer la transition
-      }
+<style>
+:root{--bg:#0a0a0a;--surface:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--green:#00ff88;--green-dim:rgba(0,255,136,0.12);--green-glow:rgba(0,255,136,0.25);--white:#f0f0ee;--muted:#777;--font-title:'Syne',sans-serif;--font-mono:'JetBrains Mono',monospace;--font-serif:'Instrument Serif',serif;--radius:12px;--ease:cubic-bezier(0.4,0,0.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:var(--font-mono);font-size:15px;line-height:1.7;overflow-x:hidden}
+#bg-canvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;background:var(--bg)}
+.container{max-width:1100px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
 
-      // On lance l'animation après le chargement complet du DOM
-      window.addEventListener("DOMContentLoaded", () => {
-        animateGitHubMacaron(".github-macaron", 1200);
-        animateGitHubMacaron(".photos", 1500);
-      });
-    </script>
-  </head>
-  <body>
-    <!-- Canvas pour l'animation de fond -->
-    <canvas id="bg-canvas"></canvas>
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(10,10,10,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s var(--ease)}
+#nav.scrolled{padding:10px 32px}
+.nav-logo{font-family:var(--font-title);font-weight:800;font-size:1.1rem;letter-spacing:-0.03em;color:var(--white);text-decoration:none;white-space:nowrap}
+.nav-logo span{color:var(--green)}
+.nav-center{display:flex;gap:4px;list-style:none;align-items:center;flex:1;justify-content:center}
+.nav-center a{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);text-decoration:none;padding:5px 13px;border-radius:99px;border:1px solid transparent;transition:all 0.25s var(--ease);letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap}
+.nav-center a:hover{color:var(--green);border-color:var(--green-dim)}
+.nav-center a.active{color:var(--green);border-color:var(--green-dim);background:var(--green-dim)}
+.nav-right{display:flex;align-items:center;gap:10px}
+#lang-btn{font-family:var(--font-mono);font-size:0.68rem;background:var(--surface);border:1px solid var(--border);color:var(--muted);padding:5px 11px;border-radius:99px;cursor:pointer;transition:all 0.25s;letter-spacing:0.08em}
+#lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,0.2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s var(--ease)}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-    <!-- En-tête + nav -->
-    <header>
-      <div
-        class="site-title"
-        onclick="window.location.href='./index.html';"
-        style="cursor: pointer"
-      >
-        Site Web d'Alexis
+/* SHARED */
+section{position:relative;z-index:1}
+.section-label{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--green)}
+.section-title{font-family:var(--font-title);font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-0.04em;line-height:1.05;color:var(--white);margin-bottom:20px}
+.section-intro{font-family:var(--font-mono);color:var(--muted);max-width:540px;line-height:1.85;font-size:0.82rem}
+.btn-primary{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;background:var(--green);color:#000;border:none;padding:11px 22px;border-radius:99px;cursor:pointer;text-decoration:none;transition:all 0.25s var(--ease);font-weight:500;display:inline-block}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--green-glow)}
+.btn-outline{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--border);padding:11px 22px;border-radius:99px;cursor:pointer;text-decoration:none;transition:all 0.25s var(--ease);display:inline-block}
+.btn-outline:hover{color:var(--white);border-color:rgba(255,255,255,0.25)}
+
+/* ══ HERO ══
+   Photo sits inline with the name — always, on every breakpoint.
+   No separate right column that creates dead space.
+*/
+#hero{min-height:100vh;display:flex;align-items:center;padding:100px 0 60px}
+.hero-text{}
+.hero-tag{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.2s forwards}
+/* Name row: name + photo side by side */
+.hero-name-row{display:flex;align-items:center;gap:24px;margin-bottom:22px}
+.hero-name{font-family:var(--font-title);font-size:clamp(2.8rem,6.5vw,5rem);font-weight:800;letter-spacing:-0.05em;line-height:0.95;color:var(--white);opacity:0;animation:fadeUp 0.8s 0.4s forwards;flex:1}
+.hero-name em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.28)}
+.hero-photo{flex-shrink:0;opacity:0;animation:fadeUp 0.8s 0.45s forwards}
+.hero-photo img{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--border);filter:grayscale(15%);transition:all 0.3s var(--ease);display:block}
+.hero-photo img:hover{filter:grayscale(0%);border-color:rgba(0,255,136,0.4)}
+.hero-desc{font-family:var(--font-mono);font-size:0.82rem;color:var(--muted);max-width:520px;line-height:1.9;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.6s forwards}
+.hero-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.7s forwards}
+.chip{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.05em;padding:4px 12px;border-radius:99px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
+.chip.green{border-color:rgba(0,255,136,0.25);color:var(--green);background:var(--green-dim)}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s 0.8s forwards}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.8s 1s forwards}
+.stat-num{font-family:var(--font-title);font-size:1.7rem;font-weight:800;color:var(--white);line-height:1}
+.stat-num span{color:var(--green)}
+.stat-label{font-family:var(--font-mono);font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+.hero-sidebar{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px;opacity:0;animation:fadeUp 0.8s 1.1s forwards}
+.sidebar-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+.sidebar-card h4{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.sidebar-card ul{list-style:none}
+.sidebar-card ul li{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);padding:3px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:7px}
+.sidebar-card ul li::before{content:'›';color:var(--green)}
+.sidebar-card ul li:last-child{border-bottom:none}
+
+/* ══ PROJETS ══ */
+#projets{padding:110px 0}
+.projects-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px}
+.year-badge{font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.12em;color:var(--green);text-transform:uppercase;background:var(--green-dim);border:1px solid rgba(0,255,136,0.2);padding:4px 12px;border-radius:99px;display:inline-block;margin-bottom:18px}
+.year-group{margin-bottom:52px}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.3s var(--ease);cursor:pointer;display:flex;flex-direction:column}
+.project-card:hover{border-color:rgba(0,255,136,0.22);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+.project-img{width:100%;height:170px;overflow:hidden;position:relative;background:#141416}
+.project-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s;filter:brightness(0.82)}
+.project-card:hover .project-img img{transform:scale(1.05);filter:brightness(1)}
+.github-pill{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.72);border:1px solid var(--border);border-radius:99px;padding:3px 10px 3px 7px;display:flex;align-items:center;gap:5px;font-size:0.62rem;color:var(--muted);text-decoration:none;transition:all 0.25s;backdrop-filter:blur(6px)}
+.github-pill:hover{color:var(--white);border-color:rgba(255,255,255,0.2)}
+.github-pill svg{width:11px;height:11px;fill:currentColor}
+.project-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.project-title-card{font-family:var(--font-title);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:7px}
+.project-desc{font-family:var(--font-mono);font-size:0.73rem;color:var(--muted);line-height:1.7;margin-bottom:14px;flex:1}
+.project-tech-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.tech-tag{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.05em;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid var(--border)}
+.project-info-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);background:none;border:none;cursor:pointer;padding:0;transition:gap 0.2s}
+.project-info-btn:hover{gap:9px}
+.project-info-btn::after{content:'→'}
+
+/* ══ GITHUB REPOS ══ */
+#github-repos{padding:0 0 100px}
+.repos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:14px;margin-top:32px}
+.repo-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px;transition:all 0.25s var(--ease)}
+.repo-card:hover{border-color:rgba(0,255,136,0.22);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.repo-card-header{display:flex;align-items:center;gap:8px}
+.repo-icon{color:var(--muted);flex-shrink:0}
+.repo-name{font-family:var(--font-title);font-size:0.88rem;font-weight:700;color:var(--white);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.repo-desc{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);line-height:1.65;flex:1}
+.repo-footer{display:flex;gap:12px;align-items:center;margin-top:auto;flex-wrap:wrap}
+.repo-lang{font-family:var(--font-mono);font-size:0.64rem;color:var(--muted);display:flex;align-items:center;gap:5px}
+.repo-lang-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.repo-stars{font-family:var(--font-mono);font-size:0.64rem;color:var(--muted)}
+.repo-updated{font-family:var(--font-mono);font-size:0.6rem;color:var(--muted);margin-left:auto}
+.repos-loading,.repos-error{font-family:var(--font-mono);font-size:0.78rem;color:var(--muted);padding:16px 0}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.25s var(--ease)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:#141416;border:1px solid var(--border);border-radius:16px;padding:36px;max-width:520px;width:100%;position:relative;transform:translateY(16px);transition:transform 0.25s var(--ease)}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-close{position:absolute;top:18px;right:18px;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer;transition:color 0.2s}
+.modal-close:hover{color:var(--white)}
+.modal-title{font-family:var(--font-title);font-size:1.4rem;font-weight:700;margin-bottom:14px}
+.modal-body{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);line-height:1.85}
+
+/* ══ RECHERCHES ══ */
+#recherches{padding:110px 0;border-top:1px solid var(--border)}
+.recherches-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.recherche-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color 0.25s}
+.recherche-card:hover{border-color:rgba(0,255,136,0.2)}
+.recherche-card h3{font-family:var(--font-title);font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.recherche-card p{font-family:var(--font-mono);font-size:0.76rem;color:var(--muted);line-height:1.8;margin-bottom:14px}
+.pdf-section{margin-top:56px}
+.pdf-section h3{font-family:var(--font-title);font-size:1.3rem;font-weight:700;margin-bottom:6px}
+.pdf-section p{font-family:var(--font-mono);font-size:0.78rem;color:var(--muted);margin-bottom:18px}
+.pdf-embed{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.pdf-embed iframe{width:100%;height:480px;border:none;display:block}
+
+/* ══ LOISIRS ══ */
+#loisirs{padding:110px 0;border-top:1px solid var(--border)}
+.map-container{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;height:460px;margin-bottom:80px}
+#travel-map{width:100%;height:100%}
+
+/* Gallery 1 — Masonry */
+.gallery-grid{columns:4;column-gap:10px;margin-bottom:80px}
+@media(max-width:900px){.gallery-grid{columns:3}}
+@media(max-width:580px){.gallery-grid{columns:2}}
+.gallery-item{break-inside:avoid;margin-bottom:10px;position:relative;border-radius:8px;overflow:hidden;cursor:pointer;background:#141416}
+.gallery-item img{width:100%;display:block;transition:transform 0.45s ease,filter 0.3s;filter:brightness(0.8)}
+.gallery-item:hover img{transform:scale(1.04);filter:brightness(1)}
+.exif-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.88));padding:22px 10px 8px;opacity:0;transition:opacity 0.25s;display:flex;flex-wrap:wrap;gap:3px}
+.gallery-item:hover .exif-overlay{opacity:1}
+.exif-tag{font-family:var(--font-mono);font-size:0.58rem;color:rgba(255,255,255,0.75);background:rgba(0,0,0,0.5);padding:2px 5px;border-radius:3px}
+
+/* Gallery 2 — Carousel */
+.carousel-section{margin-bottom:80px}
+.carousel-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.carousel-title{font-family:var(--font-title);font-size:1.1rem;font-weight:700}
+.carousel-nav{display:flex;gap:8px}
+.carousel-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:all 0.25s var(--ease)}
+.carousel-btn:hover{color:var(--white);border-color:rgba(255,255,255,0.25)}
+.carousel-track-wrap{overflow:hidden;border-radius:var(--radius)}
+.carousel-track{display:flex;gap:10px;transition:transform 0.45s var(--ease);will-change:transform}
+.carousel-slide{flex-shrink:0;width:calc(25% - 8px);position:relative;border-radius:8px;overflow:hidden;cursor:pointer;background:#141416;aspect-ratio:2/3}
+@media(max-width:900px){.carousel-slide{width:calc(33.33% - 7px)}}
+@media(max-width:580px){.carousel-slide{width:calc(50% - 5px)}}
+.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.8);transition:filter 0.3s,transform 0.45s ease}
+.carousel-slide:hover img{filter:brightness(1);transform:scale(1.04)}
+.carousel-dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:all 0.25s;border:none;padding:0}
+.carousel-dot.active{background:var(--green);width:18px;border-radius:3px}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:3000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s}
+.lightbox.visible{opacity:1;pointer-events:all}
+.lightbox img{max-width:90vw;max-height:86vh;object-fit:contain;border-radius:6px;user-select:none}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:var(--white);font-size:1rem;width:42px;height:42px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.25s;backdrop-filter:blur(8px)}
+.lb-btn:hover{background:rgba(255,255,255,0.16)}
+#lb-prev{left:18px}#lb-next{right:18px}
+#lb-close{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:var(--white);font-size:1rem;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.25s}
+#lb-close:hover{background:rgba(255,255,255,0.18)}
+.lb-exif{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;background:rgba(0,0,0,0.65);padding:7px 14px;border-radius:99px;backdrop-filter:blur(8px)}
+.lb-exif span{font-family:var(--font-mono);font-size:0.68rem;color:rgba(255,255,255,0.7)}
+
+/* ══ CONTACT ══ */
+#contact{padding:110px 0;border-top:1px solid var(--border)}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;margin-top:40px}
+.contact-cta{font-family:var(--font-title);font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:18px}
+.contact-cta span{color:var(--green);font-style:italic;font-family:var(--font-serif)}
+.contact-sub{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);line-height:1.85;margin-bottom:32px}
+.contact-links{display:flex;flex-direction:column;gap:10px}
+.contact-link{display:flex;align-items:center;gap:13px;font-family:var(--font-mono);font-size:0.75rem;color:var(--muted);text-decoration:none;padding:13px 18px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);transition:all 0.25s var(--ease)}
+.contact-link:hover{color:var(--white);border-color:rgba(255,255,255,0.18);transform:translateX(4px)}
+.contact-link.github:hover{border-color:rgba(0,255,136,0.25);color:var(--green)}
+.cl-label{color:var(--white);font-weight:500;margin-right:2px}
+.cv-card{padding:28px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);text-align:center}
+.cv-card h4{font-family:var(--font-title);font-size:1rem;margin-bottom:8px}
+.cv-card p{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);margin-bottom:18px}
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:22px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer p{font-family:var(--font-mono);font-size:0.68rem;color:var(--muted)}
+.scroll-top{font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);cursor:pointer;background:none;border:none;transition:color 0.2s}
+.scroll-top:hover{color:var(--green)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Responsive */
+@media(max-width:900px){.recherches-layout{grid-template-columns:1fr}.contact-layout{grid-template-columns:1fr;gap:36px}}
+@media(max-width:768px){
+  .container{padding:0 18px}
+  .nav-center{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,0.97);padding:14px 18px;border-bottom:1px solid var(--border);gap:2px}
+  .nav-center.open{display:flex}
+  .hamburger{display:flex}
+  .hero-name{font-size:clamp(2.2rem,8vw,3.2rem)}
+  .hero-photo img{width:88px;height:88px}
+  .hero-sidebar{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .projects-grid{grid-template-columns:1fr}
+  .hero-name-row{gap:14px}
+  .hero-photo img{width:72px;height:72px}
+}
+</style>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="nav-logo" href="#hero">Alexis<span>.</span></a>
+  <ul class="nav-center" id="nav-links">
+    <li><a href="#projets"      data-fr="Projets"     data-en="Projects">Projets</a></li>
+    <li><a href="#github-repos" data-fr="GitHub"      data-en="GitHub">GitHub</a></li>
+    <li><a href="#recherches"   data-fr="Recherches"  data-en="Research">Recherches</a></li>
+    <li><a href="#loisirs"      data-fr="Loisirs"     data-en="Hobbies">Loisirs</a></li>
+    <li><a href="#contact"      data-fr="Contact"     data-en="Contact">Contact</a></li>
+    <li><a href="./assets/cv/resume-web.pdf" target="_blank" class="active" data-fr="CV" data-en="Resume">CV</a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-btn" onclick="toggleLang()">🇬🇧 EN</button>
+    <div class="hamburger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-text">
+      <p class="hero-tag" data-fr="Étudiant Ingénieur · IA & HPC" data-en="Engineering Student · AI & HPC">Étudiant Ingénieur · IA & HPC</p>
+
+      <!-- Photo collée au nom sur TOUS les écrans -->
+      <div class="hero-name-row">
+        <h1 class="hero-name">Alexis<br><em>Evaristo</em></h1>
+        <div class="hero-photo">
+          <img src="./profile.JPG" alt="Alexis Evaristo" />
+        </div>
       </div>
-      <nav>
-        <!-- Icône hamburger -->
-        <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+
+      <p class="hero-desc"
+         data-fr="Ingénieur en Informatique, Statistique et Intelligence Artificielle à Polytech Lille. Passionné par le HPC, les architectures MoE et le Deep RL — avec pour objectif un doctorat à la frontière du calcul haute-performance et de l'IA."
+         data-en="Engineering student in CS, Statistics and AI at Polytech Lille. Passionate about HPC, MoE architectures and Deep RL — aiming for a PhD at the intersection of high-performance computing and AI.">
+        Ingénieur en Informatique, Statistique et Intelligence Artificielle à Polytech Lille. Passionné par le HPC, les architectures MoE et le Deep RL — avec pour objectif un doctorat à la frontière du calcul haute-performance et de l'IA.
+      </p>
+      <div class="hero-chips">
+        <span class="chip green">Deep RL</span><span class="chip green">MoE</span><span class="chip green">HPC</span>
+        <span class="chip">Bandits</span><span class="chip">Finance Quant</span><span class="chip">Algèbre diff.</span>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#projets" data-fr="Voir mes projets →" data-en="View projects →">Voir mes projets →</a>
+        <a class="btn-outline" href="https://github.com/AlexGit31" target="_blank">GitHub</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">11<span>+</span></div><div class="stat-label" data-fr="Projets" data-en="Projects">Projets</div></div>
+        <div class="stat-item"><div class="stat-num">30<span>+</span></div><div class="stat-label" data-fr="Villes visitées" data-en="Cities visited">Villes visitées</div></div>
+        <div class="stat-item"><div class="stat-num">3<span>+</span></div><div class="stat-label" data-fr="Années de code" data-en="Years coding">Années de code</div></div>
+      </div>
+      <div class="hero-sidebar">
+        <div class="sidebar-card">
+          <h4 data-fr="Centres d'intérêt" data-en="Research interests">Centres d'intérêt</h4>
+          <ul><li>Deep Learning</li><li>Deep RL</li><li>Bandits</li><li>Finance Quantitative</li></ul>
         </div>
-        <ul>
-          <!-- <li><a href="./pages/cv.html" id="nav-cv">CV</a></li> -->
-          <li><a href="./pages/cv2.html" id="nav-cv">CV2</a></li>
-          <li><a href="./pages/contact.html" id="nav-contact">Contact</a></li>
-          <li><a href="./pages/loisirs.html" id="nav-loisirs">Loisirs</a></li>
-          <li><a href="./pages/projets.html" id="nav-projets">Projets</a></li>
-          <li>
-            <a href="./pages/recherches.html" id="nav-recherches">Recherches</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+        <div class="sidebar-card">
+          <h4 data-fr="Lectures récentes" data-en="Recent reading">Lectures récentes</h4>
+          <ul>
+            <li style="font-size:0.65rem">RL: An Intro — Sutton & Barto</li>
+            <li style="font-size:0.65rem">Bandit Algorithms — Lattimore</li>
+            <li style="font-size:0.65rem">Loréat 2021 — Du PB aux GE</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <main>
-      <!-- Section de présentation / "Hero" -->
-      <section class="hero">
-        <h1 id="hero-title">Bienvenue sur mon site</h1>
-        <p id="hero-intro">
-          Plongez dans mon univers, découvrez mes projets et bien plus encore !
-        </p>
-      </section>
+<!-- PROJETS -->
+<section id="projets">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <p class="section-label" data-fr="Mes Projets" data-en="My Projects">Mes Projets</p>
+        <h2 class="section-title" data-fr="Ce que j'ai construit" data-en="What I've built">Ce que j'ai construit</h2>
+        <p class="section-intro" data-fr="Projets d'école et personnels, du bas niveau C à la full stack React." data-en="School and personal projects, from low-level C to full-stack React.">Projets d'école et personnels, du bas niveau C à la full stack React.</p>
+      </div>
+      <a href="https://github.com/AlexGit31" target="_blank" class="btn-outline">↗ GitHub</a>
+    </div>
 
-      <!-- Blocs principaux 
-         On supprime le contenu "direct" (h2/p) 
-         et on le stocke dans data-text, 
-         pour l'afficher lettre par lettre en JS -->
-      <section class="content-section">
-        <div class="profile-wrapper">
-          <div class="block typewriter" id="infos-simple" data-text=""></div>
-          <img src="./profile.JPG" alt="Photo de profil" class="profile-img" />
+    <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║  AJOUTER UN PROJET MANUEL :                          ║
+    ║  1. Copier un <div class="project-card"> ci-dessous  ║
+    ║  2. Définir data-project="ma_cle_unique"             ║
+    ║  3. Ajouter la description dans projectData{}        ║
+    ║     (section <script> en bas de page)                ║
+    ╚══════════════════════════════════════════════════════╝
+    -->
+
+    <div class="year-group reveal">
+      <div class="year-badge">2024 / 2025</div>
+      <div class="projects-grid">
+
+        <div class="project-card" data-project="fullstack">
+          <div class="project-img"><img src="./assets/illustration-projet/fullstack.gif" alt="Fullstack" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Dev Fullstack" data-en="Fullstack Dev">Dev Fullstack</div>
+            <p class="project-desc" data-fr="Projet fullstack en cours — React/TS + Node.js + JWT." data-en="Ongoing — React/TS + Node.js + JWT.">Projet fullstack en cours — React/TS + Node.js + JWT.</p>
+            <div class="project-tech-row"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Node.js</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
         </div>
 
-        <div
-          class="block typewriter"
-          id="parcours"
-          data-text="Mon Parcours
+        <div class="project-card" data-project="graphe">
+          <div class="project-img">
+            <img src="./assets/illustration-projet/dinic.png" alt="Graphes" loading="lazy"/>
+            <a href="https://github.com/AlexGit31/Projet-Graphe" target="_blank" class="github-pill"><svg viewBox="0 0 16 16"><path d="M8 .198a8 8 0 00-2.53 15.6c.4.074.547-.174.547-.386 0-.19-.007-.693-.01-1.36-2.226.484-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487.803.057 1.225.824 1.225.824.714 1.222 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.89-3.644-3.963 0-.875.313-1.59.824-2.15-.083-.203-.357-1.016.078-2.12 0 0 .67-.215 2.2.82a7.7 7.7 0 012.003-.27 7.7 7.7 0 012.003.27c1.53-1.035 2.2-.82 2.2-.82.435 1.104.161 1.917.08 2.12.513.56.823 1.275.823 2.15 0 3.083-1.87 3.76-3.65 3.957.288.247.543.735.543 1.48 0 1.07-.01 1.93-.01 2.19 0 .213.145.463.55.385A8 8 0 008 .198z"/></svg>GitHub</a>
+          </div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Projet Graphes" data-en="Graph Project">Projet Graphes</div>
+            <p class="project-desc" data-fr="Implémentation en C de l'algorithme de Dinic." data-en="C implementation of Dinic's algorithm.">Implémentation en C de l'algorithme de Dinic.</p>
+            <div class="project-tech-row"><span class="tech-tag">C</span><span class="tech-tag">Algo</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
 
-● École Polytechnique Universitaire de Lille
-● Classes Préparatoires aux Grandes Ecoles : Charlemagne Paris 
-● Loréat 2021 de Du Pays Basque aux Grandes Ecoles
-"
-        ></div>
-        <div class="github-wrapper">
-          <a
-            href="https://github.com/AlexGit31"
-            target="_blank"
-            class="github-macaron"
-            aria-label="Voir sur GitHub"
-          >
-            <svg
-              class="github-macaron"
-              viewBox="0 0 16 16"
-              width="150"
-              height="150"
-              fill="white"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8 .198a8 8 0 00-2.53 15.6c.4.074.547-.174.547-.386
-          0-.19-.007-.693-.01-1.36-2.226.484-2.695-1.073-2.695-1.073
-          -.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487
-          .803.057 1.225.824 1.225.824.714 1.222 1.872.87 2.33.665
-          .072-.517.28-.87.508-1.07-1.777-.202-3.644-.89-3.644-3.963
-          0-.875.313-1.59.824-2.15-.083-.203-.357-1.016.078-2.12
-          0 0 .67-.215 2.2.82a7.7 7.7 0 012.003-.27 7.7 7.7 0 012.003.27
-          c1.53-1.035 2.2-.82 2.2-.82.435 1.104.161 1.917.08 2.12
-          .513.56.823 1.275.823 2.15 0 3.083-1.87 3.76-3.65 3.957
-          .288.247.543.735.543 1.48 0 1.07-.01 1.93-.01 2.19
-          0 .213.145.463.55.385A8 8 0 008 .198z"
-              />
-            </svg>
+        <div class="project-card" data-project="dashboard">
+          <div class="project-img"><img src="./assets/illustration-projet/projet-dashbord.png" alt="Dashboard" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Dashboard INSEE" data-en="INSEE Dashboard">Dashboard INSEE</div>
+            <p class="project-desc" data-fr="Visualisation des données INSEE sur les salaires." data-en="INSEE salary data visualization.">Visualisation des données INSEE sur les salaires.</p>
+            <div class="project-tech-row"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="portfolio">
+          <div class="project-img">
+            <img src="./assets/illustration-projet/Projet-Portfolio.png" alt="Portfolio" loading="lazy"/>
+            <a href="https://github.com/AlexGit31/portfolio" target="_blank" class="github-pill"><svg viewBox="0 0 16 16"><path d="M8 .198a8 8 0 00-2.53 15.6c.4.074.547-.174.547-.386 0-.19-.007-.693-.01-1.36-2.226.484-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487.803.057 1.225.824 1.225.824.714 1.222 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.89-3.644-3.963 0-.875.313-1.59.824-2.15-.083-.203-.357-1.016.078-2.12 0 0 .67-.215 2.2.82a7.7 7.7 0 012.003-.27 7.7 7.7 0 012.003.27c1.53-1.035 2.2-.82 2.2-.82.435 1.104.161 1.917.08 2.12.513.56.823 1.275.823 2.15 0 3.083-1.87 3.76-3.65 3.957.288.247.543.735.543 1.48 0 1.07-.01 1.93-.01 2.19 0 .213.145.463.55.385A8 8 0 008 .198z"/></svg>GitHub</a>
+          </div>
+          <div class="project-body">
+            <div class="project-title-card">Portfolio</div>
+            <p class="project-desc" data-fr="Ce site web personnel — v1 vanilla." data-en="This personal website — v1 vanilla.">Ce site web personnel — v1 vanilla.</p>
+            <div class="project-tech-row"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="hammerspoon">
+          <div class="project-img"><img src="./assets/illustration-projet/Projet-HammerSpoon.png" alt="HammerSpoon" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card">HammerSpoon</div>
+            <p class="project-desc" data-fr="Raccourcis et keymaps avancés pour macOS." data-en="Advanced shortcuts and keymaps for macOS.">Raccourcis et keymaps avancés pour macOS.</p>
+            <div class="project-tech-row"><span class="tech-tag">Lua</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="year-group reveal">
+      <div class="year-badge">2023 / 2024</div>
+      <div class="projects-grid">
+
+        <div class="project-card" data-project="bdd">
+          <div class="project-img"><img src="./assets/illustration-projet/BD-projet.png" alt="BDD" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Projet BDD" data-en="Database Project">Projet BDD</div>
+            <p class="project-desc" data-fr="Site de gestion d'événements — PHP + SQL." data-en="Event management site — PHP + SQL.">Site de gestion d'événements — PHP + SQL.</p>
+            <div class="project-tech-row"><span class="tech-tag">PHP</span><span class="tech-tag">SQL</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="neovim">
+          <div class="project-img">
+            <img src="./assets/illustration-projet/projet-neovim.png" alt="Neovim" loading="lazy"/>
+            <a href="https://github.com/AlexGit31/personal-neovim" target="_blank" class="github-pill"><svg viewBox="0 0 16 16"><path d="M8 .198a8 8 0 00-2.53 15.6c.4.074.547-.174.547-.386 0-.19-.007-.693-.01-1.36-2.226.484-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487.803.057 1.225.824 1.225.824.714 1.222 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.89-3.644-3.963 0-.875.313-1.59.824-2.15-.083-.203-.357-1.016.078-2.12 0 0 .67-.215 2.2.82a7.7 7.7 0 012.003-.27 7.7 7.7 0 012.003.27c1.53-1.035 2.2-.82 2.2-.82.435 1.104.161 1.917.08 2.12.513.56.823 1.275.823 2.15 0 3.083-1.87 3.76-3.65 3.957.288.247.543.735.543 1.48 0 1.07-.01 1.93-.01 2.19 0 .213.145.463.55.385A8 8 0 008 .198z"/></svg>GitHub</a>
+          </div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Projet Neovim" data-en="Neovim Project">Projet Neovim</div>
+            <p class="project-desc" data-fr="40+ plugins, 400+ keymaps — IDE sur-mesure." data-en="40+ plugins, 400+ keymaps — custom IDE.">40+ plugins, 400+ keymaps — IDE sur-mesure.</p>
+            <div class="project-tech-row"><span class="tech-tag">Lua</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="musique">
+          <div class="project-img"><img src="./assets/illustration-projet/projet-musique.png" alt="Musique" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Projet Musique" data-en="Music Project">Projet Musique</div>
+            <p class="project-desc" data-fr="App GUI pour télécharger depuis YouTube." data-en="GUI app to download from YouTube.">App GUI pour télécharger depuis YouTube.</p>
+            <div class="project-tech-row"><span class="tech-tag">Python</span><span class="tech-tag">API</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="pyenv">
+          <div class="project-img"><img src="./assets/illustration-projet/py-env2.png" alt="PyEnv" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="GUI Python Envs" data-en="Python Envs GUI">GUI Python Envs</div>
+            <p class="project-desc" data-fr="Commande pyvenvs — sélecteur GUI d'environnements." data-en="pyvenvs — GUI selector for Python environments.">Commande pyvenvs — sélecteur GUI d'environnements.</p>
+            <div class="project-tech-row"><span class="tech-tag">Bash</span><span class="tech-tag">Python</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="year-group reveal">
+      <div class="year-badge">2022 / 2023</div>
+      <div class="projects-grid">
+
+        <div class="project-card" data-project="chess">
+          <div class="project-img"><img src="./assets/illustration-projet/ChessBot.png.webp" alt="Chess" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="IA Échecs" data-en="Chess AI">IA Échecs</div>
+            <p class="project-desc" data-fr="Mon propre Deep Blue — élagage alpha-beta." data-en="My own Deep Blue — alpha-beta pruning.">Mon propre Deep Blue — élagage alpha-beta.</p>
+            <div class="project-tech-row"><span class="tech-tag">Python</span><span class="tech-tag">Alpha-Beta</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+        <div class="project-card" data-project="optim">
+          <div class="project-img"><img src="./assets/illustration-projet/projet-optimisation.png" alt="Optim" loading="lazy"/></div>
+          <div class="project-body">
+            <div class="project-title-card" data-fr="Optimisation Réseaux" data-en="Network Optim.">Optimisation Réseaux</div>
+            <p class="project-desc" data-fr="Réseau électrique de Bayonne — Prim, Dijkstra." data-en="Bayonne's grid — Prim, Dijkstra.">Réseau électrique de Bayonne — Prim, Dijkstra.</p>
+            <div class="project-tech-row"><span class="tech-tag">Python</span><span class="tech-tag">Graphes</span></div>
+            <button class="project-info-btn" data-fr="Détails" data-en="Details">Détails</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="project-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">✕</button>
+    <h2 class="modal-title" id="modal-title"></h2>
+    <p class="modal-body" id="modal-body"></p>
+  </div>
+</div>
+
+<!-- GITHUB REPOS -->
+<section id="github-repos">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <p class="section-label" data-fr="API GitHub · Temps Réel" data-en="GitHub API · Live">API GitHub · Temps Réel</p>
+        <h2 class="section-title" data-fr="Mes Repos Publics" data-en="My Public Repos">Mes Repos Publics</h2>
+        <p class="section-intro" data-fr="Récupérés automatiquement — toujours à jour." data-en="Fetched automatically — always up to date.">Récupérés automatiquement via l'API GitHub — toujours à jour.</p>
+      </div>
+      <a href="https://github.com/AlexGit31?tab=repositories" target="_blank" class="btn-outline">Tous les repos ↗</a>
+    </div>
+    <p class="repos-loading" id="repos-status">Chargement des repos...</p>
+    <div class="repos-grid" id="repos-grid" style="display:none"></div>
+  </div>
+</section>
+
+<!-- RECHERCHES -->
+<section id="recherches">
+  <div class="container">
+    <p class="section-label" data-fr="Recherches" data-en="Research">Recherches</p>
+    <h2 class="section-title" data-fr="Travaux de Recherche" data-en="Research Work">Travaux de Recherche</h2>
+    <p class="section-intro">Mes travaux en algèbre différentielle et mes axes de recherche futurs.</p>
+    <div class="recherches-layout reveal">
+      <div class="recherche-card">
+        <h3 data-fr="Algèbre Différentielle" data-en="Differential Algebra">Algèbre Différentielle</h3>
+        <p data-fr="Recherche de solutions en séries de Puiseux à des polynômes différentiels en une variable." data-en="Finding Puiseux series solutions to differential polynomials in one variable.">Recherche de solutions en séries de Puiseux à des polynômes différentiels en une variable.</p>
+        <span class="chip green" style="display:inline-block">Algèbre · Analyse formelle</span>
+      </div>
+      <div class="recherche-card">
+        <h3 data-fr="Objectifs de Thèse" data-en="PhD Goals">Objectifs de Thèse</h3>
+        <p data-fr="Doctorat visé HPC × IA — architectures MoE, optimisation distribuée, Deep RL large échelle." data-en="PhD aimed at HPC × AI — MoE architectures, distributed optimization, large-scale Deep RL.">Doctorat visé HPC × IA — MoE, optimisation distribuée, Deep RL.</p>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px"><span class="chip green">HPC</span><span class="chip green">MoE</span><span class="chip green">Deep RL</span></div>
+      </div>
+    </div>
+    <div class="pdf-section reveal">
+      <h3 data-fr="Premiers Résultats" data-en="First Results">Premiers Résultats</h3>
+      <p>Document de recherche en algèbre différentielle.</p>
+      <div class="pdf-embed"><iframe src="/assets/recherches/resultats.pdf" title="Résultats de recherche"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOISIRS -->
+<section id="loisirs">
+  <div class="container">
+    <p class="section-label" data-fr="Voyages & Photographie" data-en="Travel & Photography">Voyages & Photographie</p>
+    <h2 class="section-title" data-fr="Loisirs" data-en="Hobbies">Loisirs</h2>
+    <p class="section-intro">Voyageur curieux et photographe amateur — Nikon D80, Fujifilm XT10, Nikon D750.</p>
+    <div class="map-container reveal" style="margin-top:40px"><div id="travel-map"></div></div>
+
+    <!-- ── Galerie 1 : Masonry ── -->
+    <div class="reveal">
+      <p class="section-label" data-fr="Portraits & Scènes" data-en="Portraits & Scenes">Portraits & Scènes</p>
+      <h3 style="font-family:var(--font-title);font-size:1.15rem;font-weight:700;margin-bottom:20px" data-fr="Ma Galerie" data-en="My Gallery">Ma Galerie</h3>
+    </div>
+    <div class="gallery-grid reveal" id="gallery-grid"></div>
+
+    <!-- ── Galerie 2 : Carousel ── -->
+    <div class="carousel-section reveal">
+      <div class="carousel-header">
+        <div>
+          <p class="section-label" data-fr="Été 2025 · Voyage" data-en="Summer 2025 · Travel">Été 2025 · Voyage</p>
+          <h3 class="carousel-title" data-fr="Mosaïque de Voyage" data-en="Travel Mosaic">Mosaïque de Voyage</h3>
+        </div>
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="car-prev">&#10094;</button>
+          <button class="carousel-btn" id="car-next">&#10095;</button>
+        </div>
+      </div>
+      <div class="carousel-track-wrap"><div class="carousel-track" id="carousel-track"></div></div>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-btn" id="lb-prev">&#10094;</button>
+  <img id="lb-img" src="" alt=""/>
+  <button class="lb-btn" id="lb-next">&#10095;</button>
+  <button id="lb-close">✕</button>
+  <div class="lb-exif" id="lb-exif"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label" data-fr="Me Contacter" data-en="Get in Touch">Me Contacter</p>
+    <div class="contact-layout">
+      <div>
+        <h2 class="contact-cta" data-fr="Travaillons <span>ensemble.</span>" data-en="Let's work <span>together.</span>">Travaillons <span>ensemble.</span></h2>
+        <p class="contact-sub">Étudiant ingénieur passionné par l'IA et le HPC, ouvert aux échanges académiques, stages et collaborations.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:alex31.eva@icloud.com">
+            <span>✉</span><span><span class="cl-label" data-fr="Perso" data-en="Personal">Perso</span> alex31.eva@icloud.com</span>
           </a>
-          <div
-            class="block typewriter"
-            id="github-infos"
-            data-text="Mes Projets
-
-Mes projets sont divers, je les ai tous répertoriés dans la page projets du site, 
-certains des codes sont disponibles sur mon Gitbub !
-            "
-          ></div>
+          <a class="contact-link" href="mailto:alexis.evaristo@polytech-lille.net">
+            <span>🎓</span><span><span class="cl-label" data-fr="École" data-en="School">École</span> alexis.evaristo@polytech-lille.net</span>
+          </a>
+          <a class="contact-link github" href="https://github.com/AlexGit31" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .198a8 8 0 00-2.53 15.6c.4.074.547-.174.547-.386 0-.19-.007-.693-.01-1.36-2.226.484-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487.803.057 1.225.824 1.225.824.714 1.222 1.872.87 2.33.665.072-.517.28-.87.508-1.07-1.777-.202-3.644-.89-3.644-3.963 0-.875.313-1.59.824-2.15-.083-.203-.357-1.016.078-2.12 0 0 .67-.215 2.2.82a7.7 7.7 0 012.003-.27 7.7 7.7 0 012.003.27c1.53-1.035 2.2-.82 2.2-.82.435 1.104.161 1.917.08 2.12.513.56.823 1.275.823 2.15 0 3.083-1.87 3.76-3.65 3.957.288.247.543.735.543 1.48 0 1.07-.01 1.93-.01 2.19 0 .213.145.463.55.385A8 8 0 008 .198z"/></svg>
+            <span><span class="cl-label">GitHub</span> AlexGit31</span>
+          </a>
         </div>
-        <div
-          class="block typewriter"
-          id="interests"
-          data-text="Mes centre d'intérêt
-
-● Deep Learning
-● Deep RL
-● Bandits
-● Finance Quantitative
-            "
-        ></div>
-        <div
-          class="block typewriter"
-          id="lectures"
-          data-text="Mes lectures récentes
-
-● Reinforcement Learning: An Introduction - Richard S. Sutton and Andrew G. Barto
-● Bandit Algorithms - Tor Lattimore and Csaba Szepesv´ ari
-            "
-        ></div>
-        <!-- Ici on ajoute un block avec des jolies photos-->
-        <div class="block" id="photo"></div>
-      </section>
-    </main>
-
-    <footer>
-      <div id="lang-toggle" onclick="toggleLanguage2()">
-        <div class="flag" id="flag-fr">🇫🇷</div>
-        <div class="flag" id="flag-en">🇬🇧</div>
       </div>
-      <div class="footer-content">
-        <p id="copyright">&copy; 2025 Alexis - Tous droits réservés</p>
-        <!-- <a href="./admin/dashboard.html" id="admin-link">Admin</a> -->
+      <div class="cv-card">
+        <h4 data-fr="Mon CV" data-en="My Resume">Mon CV</h4>
+        <p data-fr="Télécharger au format PDF." data-en="Download in PDF format.">Télécharger au format PDF.</p>
+        <a class="btn-primary" href="./assets/cv/resume-web.pdf" target="_blank" data-fr="Télécharger →" data-en="Download →">Télécharger →</a>
       </div>
-    </footer>
-    <script src="./assets/js/index.js"></script>
-    <script src="./assets/js/toggle-language.js"></script>
-    <!-- On ajoute ici le script pour les données de visites du site -->
-  </body>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Alexis Evaristo — Polytech Lille</p>
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Haut de page</button>
+</footer>
+
+<script>
+/* ═══ CANVAS ═══ */
+const canvas=document.getElementById('bg-canvas'),ctx=canvas.getContext('2d');
+let w,h,lines=[];
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;}
+addEventListener('resize',resize);resize();
+class Line{constructor(){this.x=Math.random()*w;this.y=h;this.s=Math.random()*1.4+0.4;this.l=Math.random()*75+30;this.c=Math.random()>.5?'rgba(0,255,136,0.45)':'rgba(130,130,130,0.28)';}tick(){this.y-=this.s;}draw(){ctx.beginPath();ctx.moveTo(this.x,this.y);ctx.lineTo(this.x,this.y+this.l);ctx.strokeStyle=this.c;ctx.lineWidth=1.5;ctx.stroke();}}
+setInterval(()=>lines.push(new Line()),900);
+(function loop(){requestAnimationFrame(loop);ctx.fillStyle='rgba(10,10,10,0.2)';ctx.fillRect(0,0,w,h);lines.forEach(l=>{l.tick();l.draw();});lines=lines.filter(l=>l.y+l.l>0);})();
+
+/* ═══ NAV ═══ */
+addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>40);
+  const ids=['hero','projets','github-repos','recherches','loisirs','contact'];
+  let cur='';ids.forEach(id=>{const el=document.getElementById(id);if(el&&scrollY>=el.offsetTop-130)cur=id;});
+  document.querySelectorAll('.nav-center a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+function toggleMenu(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('burger').classList.toggle('open');}
+document.querySelectorAll('.nav-center a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open');document.getElementById('burger').classList.remove('open');}));
+
+/* ═══ LANG ═══ */
+let lang='fr';
+function toggleLang(){
+  lang=lang==='fr'?'en':'fr';
+  document.getElementById('lang-btn').textContent=lang==='fr'?'🇬🇧 EN':'🇫🇷 FR';
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    const txt=el.getAttribute('data-'+lang);if(!txt)return;
+    if(el.tagName==='INPUT')el.placeholder=txt;
+    else if(txt.includes('<span>'))el.innerHTML=txt;
+    else el.textContent=txt;
+  });
+}
+
+/* ═══ REVEAL ═══ */
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}}),{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+/* ═══ PROJECT MODAL ═══
+   ➜ Pour ajouter un projet : ajoute une entrée dans cet objet
+     avec la même clé que data-project="ta_cle"
+*/
+const projectData={
+  fullstack:{fr:"Projet fullstack en cours. React + TypeScript frontend, Node.js backend avec auth JWT et gestion BDD.",en:"Ongoing fullstack project. React + TypeScript frontend, Node.js backend with JWT auth and DB management."},
+  graphe:{fr:"Projet d'école — implémentation en C de l'algorithme de Dinic pour le flot maximum dans un graphe orienté.",en:"School project — C implementation of Dinic's algorithm for max flow in a directed graph."},
+  dashboard:{fr:"Projet d'école — dashboard interactif sur les données INSEE des salaires. Indicateurs de disparité H/F.",en:"School project — interactive dashboard on INSEE salary data with gender disparity indicators."},
+  portfolio:{fr:"Projet personnel — site web v1 vanilla pour mettre en pratique mes compétences frontend.",en:"Personal project — v1 vanilla website to practice frontend skills."},
+  hammerspoon:{fr:"Projet personnel — config macOS avancée avec raccourcis et keymaps pour le window management.",en:"Personal project — advanced macOS config with shortcuts and keymaps for window management."},
+  bdd:{fr:"Projet d'école — site de gestion d'événements. MVC, PHP + SQL, gestion utilisateurs et inscriptions.",en:"School project — event management site. MVC, PHP + SQL, user and registration management."},
+  neovim:{fr:"Projet personnel — config Neovim avec 40+ plugins et 400+ keymaps pour un workflow de dev ultra-fluide.",en:"Personal project — Neovim config with 40+ plugins and 400+ keymaps for an ultra-smooth dev workflow."},
+  musique:{fr:"Projet personnel — app GUI pour télécharger de la musique depuis YouTube avec gestion des métadonnées.",en:"Personal project — GUI app to download music from YouTube with metadata management."},
+  pyenv:{fr:"Projet personnel — commande pyvenvs pour gérer ses environnements virtuels Python via une GUI.",en:"Personal project — pyvenvs command to manage Python virtual environments via a GUI."},
+  chess:{fr:"Projet personnel — algorithme d'échecs en Python inspiré de Deep Blue. Élagage alpha-beta.",en:"Personal project — chess algorithm in Python inspired by Deep Blue. Alpha-beta pruning."},
+  optim:{fr:"Projet personnel — optimisation du réseau électrique de Bayonne : Prim, Dijkstra, k-moyennes.",en:"Personal project — optimization of Bayonne's electrical grid: Prim, Dijkstra, k-means."},
+};
+const modal=document.getElementById('project-modal');
+document.querySelectorAll('.project-card').forEach(card=>{
+  card.addEventListener('click',e=>{
+    if(e.target.closest('a'))return;
+    const k=card.dataset.project;if(!projectData[k])return;
+    document.getElementById('modal-title').textContent=card.querySelector('.project-title-card').textContent;
+    document.getElementById('modal-body').textContent=projectData[k][lang]||projectData[k].fr;
+    modal.classList.add('open');
+  });
+});
+document.getElementById('modal-close').addEventListener('click',()=>modal.classList.remove('open'));
+modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))modal.classList.remove('open');});
+
+/* ═══ GITHUB REPOS ═══ */
+const GH_USER='AlexGit31';
+const LANG_COLORS={Python:'#3572A5',C:'#555',JavaScript:'#f1e05a',TypeScript:'#2b7489',Lua:'#000080',HTML:'#e34c26',CSS:'#563d7c',Shell:'#89e051',Go:'#00ADD8',Rust:'#dea584',Vue:'#41b883'};
+function timeAgo(d){const days=Math.floor((Date.now()-new Date(d))/86400000);if(days===0)return"auj.";if(days<30)return`${days}j`;if(days<365)return`${Math.floor(days/30)}m`;return`${Math.floor(days/365)}a`;}
+(async function loadRepos(){
+  const status=document.getElementById('repos-status'),grid=document.getElementById('repos-grid');
+  try{
+    const r=await fetch(`https://api.github.com/users/${GH_USER}/repos?sort=updated&per_page=20&type=public`);
+    if(!r.ok)throw new Error(r.status);
+    const repos=(await r.json()).filter(r=>!r.fork).sort((a,b)=>b.stargazers_count-a.stargazers_count||new Date(b.updated_at)-new Date(a.updated_at));
+    status.style.display='none';grid.style.display='grid';
+    repos.forEach(repo=>{
+      const lang=repo.language||'',color=LANG_COLORS[lang]||'#8b8b8b';
+      const card=document.createElement('a');card.className='repo-card';card.href=repo.html_url;card.target='_blank';card.rel='noopener';
+      card.innerHTML=`<div class="repo-card-header"><svg class="repo-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/></svg><span class="repo-name">${repo.name}</span></div><p class="repo-desc">${repo.description||'<em style="color:#444;font-style:italic">No description</em>'}</p><div class="repo-footer">${lang?`<span class="repo-lang"><span class="repo-lang-dot" style="background:${color}"></span>${lang}</span>`:''}${repo.stargazers_count>0?`<span class="repo-stars">★ ${repo.stargazers_count}</span>`:''}<span class="repo-updated">${timeAgo(repo.updated_at)}</span></div>`;
+      grid.appendChild(card);
+    });
+  }catch(err){status.textContent='Impossible de charger les repos GitHub.';status.className='repos-error';console.warn(err);}
+})();
+
+/* ═══ PHOTOS ═══
+   ➜ AJOUTER des photos Galerie 1 → PHOTOS_GALLERY1
+   ➜ AJOUTER des photos Carousel  → PHOTOS_GALLERY2
+   Format : {src:'chemin/photo.jpg', exif:{cam:'…',lens:'…',iso:'…',ss:'…'}}
+*/
+const PHOTOS_GALLERY1=[
+  {src:'./assets/Photos/photo12.png', exif:{cam:'Nikon D80',lens:'66mm f/5.0',iso:'100',ss:'1/200s'}},
+  {src:'./assets/Photos/photo11.png', exif:{cam:'Nikon D80',lens:'56mm f/4.0',iso:'400',ss:'1/60s'}},
+  {src:'./assets/Photos/photo15.png', exif:{cam:'Nikon D80',lens:'56mm f/4.0',iso:'280',ss:'1/125s'}},
+  {src:'./assets/Photos/photo13.JPG', exif:{cam:'Nikon D80',lens:'95mm f/8.0',iso:'160',ss:'1/30s'}},
+  {src:'./assets/Photos/photo14.JPG', exif:{cam:'Nikon D80',lens:'86mm f/8.0',iso:'100',ss:'1/250s'}},
+  {src:'./assets/Photos/photo3.JPG',  exif:{cam:'Fujifilm XT10',lens:'56mm f/1.2',iso:'400',ss:'1/13000s'}},
+  {src:'./assets/Photos/photo6.JPG',  exif:{cam:'Fujifilm XT10',lens:'56mm f/1.6',iso:'400',ss:'1/7500s'}},
+  {src:'./assets/Photos/photo2.JPG',  exif:{cam:'Nikon D750',lens:'50mm f/1.8',iso:'100',ss:'1/200s'}},
+  {src:'./assets/Photos/photo9.JPG',  exif:{cam:'Fujifilm XT10',lens:'50mm f/1.8',iso:'1000',ss:'1/500s'}},
+  {src:'./assets/Photos/photo16.JPG', exif:{cam:'Fujifilm XT10',lens:'50mm f/1.8',iso:'2000',ss:'1/500s'}},
+  {src:'./assets/Photos/photo7.JPG',  exif:{cam:'Fujifilm XT10',lens:'50mm f/1.8',iso:'2000',ss:'1/180s'}},
+  {src:'./assets/Photos/photo8.png',  exif:{cam:'Fujifilm XT10',lens:'50mm f/5.6',iso:'3200',ss:'1/500s'}},
+  {src:'./assets/Photos/summer2025/photo17.JPG',exif:{cam:'Fujifilm XT10',lens:'67mm f/2.8',iso:'800',ss:'1/4000s'}},
+  {src:'./assets/Photos/summer2025/photo18.JPG',exif:{cam:'Fujifilm XT10',lens:'67mm f/2.8',iso:'800',ss:'1/4000s'}},
+  {src:'./assets/Photos/summer2025/photo19.JPG',exif:{cam:'Fujifilm XT10',lens:'67mm f/2.4',iso:'800',ss:'1/4000s'}},
+  {src:'./assets/Photos/summer2025/photo20.JPG',exif:{cam:'Nikon D750',lens:'50mm f/1.8',iso:'100',ss:'1/200s'}},
+];
+const PHOTOS_GALLERY2=[
+  {src:'./assets/Photos/trip2025/Photo17.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo18.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo19.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo20.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo21.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo22.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo23.JPG',exif:{}},
+  {src:'./assets/Photos/trip2025/Photo24.JPG',exif:{}},
+];
+
+let lbPool=PHOTOS_GALLERY1,lbIdx=0;
+
+/* Build Gallery 1 */
+const g1=document.getElementById('gallery-grid');
+PHOTOS_GALLERY1.forEach((p,i)=>{
+  const item=document.createElement('div');item.className='gallery-item';
+  const img=document.createElement('img');img.src=p.src;img.alt=`Photo ${i+1}`;img.loading='lazy';
+  const ov=document.createElement('div');ov.className='exif-overlay';
+  if(p.exif.cam)ov.innerHTML=`<span class="exif-tag">📷 ${p.exif.cam}</span><span class="exif-tag">🔍 ${p.exif.lens}</span><span class="exif-tag">ISO ${p.exif.iso}</span><span class="exif-tag">${p.exif.ss}</span>`;
+  item.append(img,ov);item.addEventListener('click',()=>{lbPool=PHOTOS_GALLERY1;openLb(i);});g1.appendChild(item);
+});
+
+/* Build Carousel */
+const track=document.getElementById('carousel-track'),dots=document.getElementById('carousel-dots');
+let carPos=0;
+const nVisible=()=>innerWidth<=580?2:innerWidth<=900?3:4;
+const maxPos=()=>Math.max(0,PHOTOS_GALLERY2.length-nVisible());
+PHOTOS_GALLERY2.forEach((p,i)=>{
+  const slide=document.createElement('div');slide.className='carousel-slide';
+  const img=document.createElement('img');img.src=p.src;img.alt=`Voyage ${i+1}`;img.loading='lazy';
+  const ov=document.createElement('div');ov.className='exif-overlay';
+  slide.append(img,ov);slide.addEventListener('click',()=>{lbPool=PHOTOS_GALLERY2;openLb(i);});track.appendChild(slide);
+  const dot=document.createElement('button');dot.className='carousel-dot';if(i===0)dot.classList.add('active');
+  dot.addEventListener('click',()=>{carPos=Math.min(i,maxPos());updateCar();});dots.appendChild(dot);
+});
+function slideW(){const s=track.querySelector('.carousel-slide');return s?s.offsetWidth+10:0;}
+function updateCar(){track.style.transform=`translateX(-${carPos*slideW()}px)`;document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===carPos));}
+document.getElementById('car-prev').addEventListener('click',()=>{carPos=Math.max(0,carPos-1);updateCar();});
+document.getElementById('car-next').addEventListener('click',()=>{carPos=Math.min(maxPos(),carPos+1);updateCar();});
+addEventListener('resize',()=>{carPos=Math.min(carPos,maxPos());updateCar();});
+let cTx=0;track.addEventListener('touchstart',e=>cTx=e.touches[0].clientX,{passive:true});
+track.addEventListener('touchend',e=>{const d=cTx-e.changedTouches[0].clientX;if(Math.abs(d)>40){carPos=d>0?Math.min(maxPos(),carPos+1):Math.max(0,carPos-1);updateCar();}});
+
+/* Lightbox */
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbExif=document.getElementById('lb-exif');
+function openLb(i){lbIdx=i;updateLb();lb.classList.add('visible');document.body.style.overflow='hidden';}
+function closeLb(){lb.classList.remove('visible');document.body.style.overflow='';}
+function updateLb(){const p=lbPool[lbIdx];lbImg.src=p.src;lbExif.innerHTML=p.exif.cam?`<span>📷 ${p.exif.cam}</span><span>🔍 ${p.exif.lens}</span><span>ISO ${p.exif.iso}</span><span>${p.exif.ss}</span>`:'';};
+document.getElementById('lb-close').addEventListener('click',closeLb);
+document.getElementById('lb-prev').addEventListener('click',()=>{lbIdx=(lbIdx-1+lbPool.length)%lbPool.length;updateLb();});
+document.getElementById('lb-next').addEventListener('click',()=>{lbIdx=(lbIdx+1)%lbPool.length;updateLb();});
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('visible'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowRight'){lbIdx=(lbIdx+1)%lbPool.length;updateLb();}if(e.key==='ArrowLeft'){lbIdx=(lbIdx-1+lbPool.length)%lbPool.length;updateLb();}});
+let lbTx=0;lb.addEventListener('touchstart',e=>lbTx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const d=lbTx-e.changedTouches[0].clientX;if(Math.abs(d)>50){lbIdx=d>0?(lbIdx+1)%lbPool.length:(lbIdx-1+lbPool.length)%lbPool.length;updateLb();}});
+
+/* ═══ CARTE LEAFLET ═══
+   ➜ Pour ajouter une ville : copier un objet dans PLACES
+*/
+const PLACES=[
+  {name:"Paris, France",          lat:48.8566,  lng:2.3522,   photos:["/assets/Photos/France/Paris/paris1.png","/assets/Photos/France/Paris/paris2.png"]},
+  {name:"Bayonne, France",        lat:43.4929,  lng:-1.4748,  photos:["/assets/Photos/France/Bayonne/bayonne1.png"]},
+  {name:"Biarritz, France",       lat:43.4832,  lng:-1.5586,  photos:["/assets/Photos/France/Biarritz/biarritz1.png"]},
+  {name:"Bordeaux, France",       lat:44.8378,  lng:-0.5792,  photos:[]},
+  {name:"Toulouse, France",       lat:43.6047,  lng:1.4442,   photos:[]},
+  {name:"Lille, France",          lat:50.6292,  lng:3.0573,   photos:["/assets/Photos/France/Lille/lille1.png"]},
+  {name:"Menton, France",         lat:43.7745,  lng:7.4975,   photos:["/assets/Photos/France/Menton/menton1.png"]},
+  {name:"Nice, France",           lat:43.7102,  lng:7.262,    photos:[]},
+  {name:"Versailles, France",     lat:48.8049,  lng:2.1204,   photos:["/assets/Photos/France/Versailles/versailles1.png"]},
+  {name:"Londres, Angleterre",    lat:51.5074,  lng:-0.1278,  photos:[]},
+  {name:"Brighton, Angleterre",   lat:50.8225,  lng:-0.1372,  photos:[]},
+  {name:"Monaco",                 lat:43.7384,  lng:7.4246,   photos:["/assets/Photos/Monaco/monaco1.png"]},
+  {name:"Florence, Italie",       lat:43.7699,  lng:11.2556,  photos:[]},
+  {name:"Venise, Italie",         lat:45.4408,  lng:12.3155,  photos:[]},
+  {name:"Madrid, Espagne",        lat:40.4168,  lng:-3.7038,  photos:[]},
+  {name:"Porto, Portugal",        lat:41.1579,  lng:-8.6291,  photos:["/assets/Photos/Portugal/Porto/porto1.png"]},
+  {name:"Lisbonne, Portugal",     lat:38.7169,  lng:-9.139,   photos:["/assets/Photos/Portugal/Lisbonne/lisbonne1.png"]},
+  {name:"Santiago de Compostela", lat:42.8805,  lng:-8.5457,  photos:[]},
+  {name:"Prague, Rép. Tchèque",  lat:50.0755,  lng:14.4378,  photos:["/assets/Photos/trip2025/Photo22.JPG"]},
+  {name:"Rotterdam, Pays-Bas",    lat:51.9244,  lng:4.4777,   photos:["/assets/Photos/Pays-Bas/Rotterdam/rotterdam1.png"]},
+  {name:"Amsterdam, Pays-Bas",    lat:52.3676,  lng:4.9041,   photos:["/assets/Photos/Pays-Bas/Amsterdam/amsterdam1.png"]},
+  {name:"Bruges, Belgique",       lat:51.2093,  lng:3.2247,   photos:["/assets/Photos/Belgique/Bruges/bruges1.png"]},
+  {name:"Gand, Belgique",         lat:51.0543,  lng:3.7174,   photos:["/assets/Photos/Belgique/Ghent/ghent1.png"]},
+  {name:"Bruxelles, Belgique",    lat:50.8503,  lng:4.3517,   photos:["/assets/Photos/Belgique/Bruxelles/bruxelles1.png"]},
+  {name:"Séoul, Corée du Sud",    lat:37.5665,  lng:126.978,  photos:["/assets/Photos/photo12.png"]},
+  {name:"Busan, Corée du Sud",    lat:35.1796,  lng:129.0756, photos:["/assets/Photos/photo13.JPG"]},
+];
+document.addEventListener('DOMContentLoaded',()=>{
+  const map=L.map('travel-map',{minZoom:2}).setView([20,10],2);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:20,subdomains:'abcd',attribution:'© OpenStreetMap © CARTO'}).addTo(map);
+  const pin=L.divIcon({className:'',html:`<div style="width:9px;height:9px;border-radius:50%;background:#00ff88;border:2px solid rgba(0,255,136,0.25);box-shadow:0 0 7px rgba(0,255,136,0.5)"></div>`,iconSize:[9,9],iconAnchor:[4,4]});
+  PLACES.forEach(p=>{
+    const imgs=p.photos.slice(0,3).map(s=>`<a href="${s}" target="_blank"><img src="${s}" style="width:54px;height:54px;object-fit:cover;border-radius:4px;border:1px solid rgba(255,255,255,0.1)" loading="lazy"/></a>`).join('');
+    L.marker([p.lat,p.lng],{icon:pin,title:p.name}).addTo(map).bindPopup(`<div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#f0f0ee"><strong style="color:#00ff88">${p.name}</strong><div style="display:flex;gap:5px;margin-top:6px;flex-wrap:wrap">${imgs}</div></div>`,{className:'custom-popup',maxWidth:240});
+  });
+  const grp=L.featureGroup(PLACES.map(p=>L.marker([p.lat,p.lng])));map.fitBounds(grp.getBounds().pad(0.3));
+});
+</script>
+
+<style>
+.custom-popup .leaflet-popup-content-wrapper{background:rgba(16,16,18,0.97)!important;border:1px solid rgba(255,255,255,0.1)!important;border-radius:10px!important;box-shadow:0 20px 50px rgba(0,0,0,0.6)!important;backdrop-filter:blur(12px)}
+.custom-popup .leaflet-popup-tip{background:rgba(16,16,18,0.97)!important}
+.leaflet-container{background:#0a0a0a}
+</style>
+</body>
 </html>
