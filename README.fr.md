@@ -7,7 +7,7 @@ Ce site met en valeur mes projets, mes compétences et mon parcours. Il a été 
 
 ## 🚀 Site en ligne
 
-Disponible ici 👉 [alexis-portfolio.com](https://alexis-portfolio.com)
+Disponible ici 👉 [portfolio](https://alexgit31.github.io/Portfolio/)
 
 ## 🛠️ Technologies utilisées
 
