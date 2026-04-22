@@ -7,7 +7,7 @@ This site showcases my projects, skills, and background. It’s built with simpl
 
 ## 🚀 Live Site
 
-Check it out here 👉 [alexis-portfolio.com](https://alexis-portfolio.com)
+Check it out here 👉 [portfolio](https://alexgit31.github.io/Portfolio/)
 
 ## 🛠️ Technologies Used
 
