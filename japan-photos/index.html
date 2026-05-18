@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本 — Carnet de voyage</title>
+  <meta name="description" content="Carnet photographique d'un séjour au Japon." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=JetBrains+Mono:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-kanji" aria-hidden="true">日本</span>
+      <div class="brand-text">
+        <h1>Carnet de voyage</h1>
+        <p class="brand-sub">Quatre mois au Japon · <span id="photo-count">—</span> images</p>
+      </div>
+    </div>
+    <nav class="meta">
+      <span id="last-update">—</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="intro-text">
+        Un carnet d'images, sans légende ni hiérarchie.<br />
+        <em>Faites défiler.</em>
+      </p>
+    </section>
+
+    <section class="gallery" id="gallery" aria-label="Galerie photo">
+      <!-- Photos insérées par JS -->
+    </section>
+
+    <section class="empty-state" id="empty-state" hidden>
+      <p>Aucune photo pour le moment.</p>
+      <p class="empty-hint">Ajoutez des images dans le dossier <code>photos/</code>.</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>Fait à la main · <span id="year"></span></p>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-label="Vue détaillée">
+    <button class="lb-close" id="lb-close" aria-label="Fermer">×</button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Précédente">‹</button>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Suivante">›</button>
+
+    <figure class="lb-figure">
+      <img id="lb-image" alt="" />
+      <figcaption class="lb-caption">
+        <span id="lb-index">—</span>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
